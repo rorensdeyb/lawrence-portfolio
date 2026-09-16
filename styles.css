@@ -92,25 +92,25 @@ body {
 }
 
 .word-welcome {
-    animation: slideFromLeft 0.6s ease-out 1.8s forwards;
+    animation: slideFromLeft 0.7s ease-out 1.8s forwards;
 }
 
 .word-tomy {
-    animation: slideFromLeft 0.6s ease-out 2.4s forwards;
+    animation: slideFromLeft 0.7s ease-out 2.5s forwards;
 }
 
 .word-portfolio {
-    animation: slideFromBottom 0.6s ease-out 3s forwards;
+    animation: slideFromBottom 0.7s ease-out 3.2s forwards;
 }
 
 .word-website {
-    animation: slideFromBottom 0.6s ease-out 3.6s forwards;
+    animation: slideFromBottom 0.7s ease-out 3.9s forwards;
 }
 
 @keyframes slideFromLeft {
     0% {
         opacity: 0;
-        transform: translateX(-50px);
+        transform: translateX(-60px);
     }
     100% {
         opacity: 1;
@@ -121,7 +121,7 @@ body {
 @keyframes slideFromBottom {
     0% {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(40px);
     }
     100% {
         opacity: 1;
