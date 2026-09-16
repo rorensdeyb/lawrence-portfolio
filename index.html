@@ -82,16 +82,21 @@
         const text = "Web & Mobile Application Developer";
         const typingElement = document.getElementById("typing");
         let index = 0;
+        let lastTime = 0;
+        const speed = 60;
 
-        function type() {
+        function type(currentTime) {
             if (index < text.length) {
-                typingElement.textContent += text.charAt(index);
-                index++;
-                setTimeout(type, 80);
+                if (currentTime - lastTime >= speed) {
+                    typingElement.textContent += text.charAt(index);
+                    index++;
+                    lastTime = currentTime;
+                }
+                requestAnimationFrame(type);
             }
         }
 
-        type();
+        requestAnimationFrame(type);
     </script>
 </body>
 </html>
