@@ -112,75 +112,18 @@
         <!-- About Section -->
         <section id="about" class="about-section">
             <div class="about-header">
-                <span class="section-label">ABOUT ME</span>
-                <h2 class="section-title">Get to Know Me</h2>
+                <h2 class="section-title">About Me</h2>
             </div>
 
-            <div class="about-grid">
-                <!-- Who I Am -->
-                <div class="about-card who-i-am">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <h3>Who I Am</h3>
-                    </div>
-                    <div class="card-content">
-                        <p>I'm Lawrence Dave P. Tolentino, an Information Technology student specializing in Web and Mobile Application Development, with a strong interest in building practical, user-focused, and innovative applications.</p>
-                        <p>Throughout my college journey, I've worked on various academic and personal projects that allowed me to explore different areas of software development, from UI/UX design and frontend development to backend systems, databases, APIs, deployment, and security.</p>
-                        <p>I'm also interested in Generative AI and AI-assisted software development. I strive to maximize the potential of AI as a development tool while continuously applying my own technical skills, knowledge, understanding, and problem-solving abilities.</p>
-                        <p>Regardless of project limitations, tight deadlines, or challenges within a team, I always strive to see a project through to completion. I aim to go beyond simply meeting requirements by improving the design, functionality, usability, documentation, and overall quality of the system.</p>
-                    </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="images/portfolio-profile.jpg" alt="Lawrence Dave P. Tolentino">
                 </div>
-
-                <!-- Development Philosophy -->
-                <div class="about-card philosophy">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <h3>Development Philosophy</h3>
-                    </div>
-                    <div class="card-content">
-                        <p class="philosophy-quote">AI helps me build faster. My skills and understanding determine what I build.</p>
-                        <p>I maximize the use of AI throughout my development workflow, but I remain responsible for understanding, reviewing, testing, refining, and validating the work produced. My goal is to create systems that aren't just functional, but are thoughtfully designed, properly documented, reliable, secure, maintainable, and polished.</p>
-                    </div>
-                </div>
-
-                <!-- Quick Facts -->
-                <div class="about-card quick-facts">
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="fas fa-info-circle"></i>
-                        </div>
-                        <h3>Quick Facts</h3>
-                    </div>
-                    <div class="card-content">
-                        <div class="fact-item">
-                            <span class="fact-label">Education</span>
-                            <span class="fact-value">BSIT - Laguna State Polytechnic University of San Pablo City Campus</span>
-                        </div>
-                        <div class="fact-item">
-                            <span class="fact-label">Specialization</span>
-                            <span class="fact-value">Web and Mobile Application Development</span>
-                        </div>
-                        <div class="fact-item">
-                            <span class="fact-label">Graduation</span>
-                            <span class="fact-value">2027</span>
-                        </div>
-                        <div class="fact-item">
-                            <span class="fact-label">Location</span>
-                            <span class="fact-value">Calauan Laguna, Philippines</span>
-                        </div>
-                        <div class="fact-item">
-                            <span class="fact-label">Phone</span>
-                            <span class="fact-value">09081132527</span>
-                        </div>
-                        <div class="fact-item">
-                            <span class="fact-label">Email</span>
-                            <span class="fact-value">lawrencetolentino103004@gmail.com</span>
-                        </div>
-                    </div>
+                <div class="about-text">
+                    <p>I'm Lawrence Dave P. Tolentino, an Information Technology student specializing in Web and Mobile Application Development, with a strong interest in building practical, user-focused, and innovative applications.</p>
+                    <p>Throughout my college journey, I've worked on various academic and personal projects that allowed me to explore different areas of software development, from UI/UX design and frontend development to backend systems, databases, APIs, deployment, and security.</p>
+                    <p>I'm also interested in Generative AI and AI-assisted software development. I strive to maximize the potential of AI as a development tool while continuously applying my own technical skills, knowledge, understanding, and problem-solving abilities.</p>
+                    <p>Regardless of project limitations, tight deadlines, or challenges within a team, I always strive to see a project through to completion. I aim to go beyond simply meeting requirements by improving the design, functionality, usability, documentation, and overall quality of the system.</p>
                 </div>
             </div>
         </section>
@@ -255,7 +198,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.about-card, .about-header').forEach(el => {
+        document.querySelectorAll('.about-header, .about-image, .about-text').forEach(el => {
             el.style.animationPlayState = 'paused';
             observer.observe(el);
         });
