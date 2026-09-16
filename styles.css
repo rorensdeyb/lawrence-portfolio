@@ -14,7 +14,7 @@ body {
 .container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 40px 40px 20px;
+    padding: 20px 40px 20px;
 }
 
 /* Navbar */
@@ -65,15 +65,16 @@ body {
 .hero {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     gap: 80px;
-    min-height: calc(100vh - 140px);
+    min-height: calc(100vh - 120px);
     padding: 20px 0;
 }
 
 .hero-content {
     flex: 1;
     max-width: 650px;
+    margin-bottom: 60px;
 }
 
 .hero-content h1 {
@@ -183,6 +184,7 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
+    align-self: center;
 }
 
 .profile-circle {
@@ -336,32 +338,4 @@ body {
 @keyframes blink {
     from, to { border-color: transparent; }
     50% { border-color: #1a1a1a; }
-}
-
-/* Shiny Effect for Lawrence */
-.shiny-text {
-    position: relative;
-    display: inline-block;
-}
-
-.shiny-text::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.8),
-        transparent
-    );
-    animation: shinyOnce 1.5s ease-out forwards;
-    pointer-events: none;
-}
-
-@keyframes shinyOnce {
-    0% { left: -100%; }
-    100% { left: 200%; }
 }
