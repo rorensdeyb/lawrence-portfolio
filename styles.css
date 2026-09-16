@@ -68,11 +68,8 @@ body {
 .welcome-text {
     margin-top: 15px;
     opacity: 0;
-    animation: welcomeFadeIn 0.3s ease-out 1.8s forwards;
-}
-
-@keyframes welcomeFadeIn {
-    to { opacity: 1; }
+    position: absolute;
+    width: 100%;
 }
 
 .welcome-line {
@@ -89,28 +86,20 @@ body {
     opacity: 0;
 }
 
-.word-left {
-    animation: slideFromLeft 0.7s ease-out forwards;
+.word-welcome {
+    animation: slideFromLeft 0.6s ease-out 1.8s forwards;
 }
 
-.line-1 .word:nth-child(1) {
-    animation-delay: 2s;
+.word-tomy {
+    animation: slideFromLeft 0.6s ease-out 2.4s forwards;
 }
 
-.line-1 .word:nth-child(2) {
-    animation-delay: 2.2s;
+.word-portfolio {
+    animation: slideFromBottom 0.6s ease-out 3s forwards;
 }
 
-.word-up {
-    animation: slideFromBottom 0.7s ease-out forwards;
-}
-
-.line-2 .word:nth-child(1) {
-    animation-delay: 2.4s;
-}
-
-.line-2 .word:nth-child(2) {
-    animation-delay: 2.6s;
+.word-website {
+    animation: slideFromBottom 0.6s ease-out 3.6s forwards;
 }
 
 @keyframes slideFromLeft {
