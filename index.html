@@ -51,30 +51,54 @@
             </div>
             <div class="project-preview">
                 <div class="project-card active" data-project="0">
-                    <div class="project-image">
-                        <img src="images/DiariCore/Screenshot 2026-09-16 180234.png" alt="DiariCore">
+                    <div class="project-slider">
+                        <div class="slide active"><img src="images/DiariCore/Screenshot 2026-09-14 205540.png" alt="DiariCore"></div>
+                        <div class="slide"><img src="images/DiariCore/Screenshot 2026-09-16 180234.png" alt="DiariCore"></div>
+                        <div class="slide"><img src="images/DiariCore/Screenshot 2026-09-16 180350.png" alt="DiariCore"></div>
+                        <div class="slide"><img src="images/DiariCore/Screenshot 2026-09-16 180410.png" alt="DiariCore"></div>
                     </div>
                     <div class="project-info">
                         <h3>DiariCore</h3>
-                        <p>AI-Powered Diary System</p>
+                        <p>AI-powered diary with mood tracking and sentiment analysis</p>
+                        <div class="tech-stack">
+                            <span>Python</span>
+                            <span>Flask</span>
+                            <span>NLP</span>
+                        </div>
                     </div>
                 </div>
                 <div class="project-card" data-project="1">
-                    <div class="project-image">
-                        <img src="images/BondNest/Screenshot 2026-09-16 180654.png" alt="BondNest">
+                    <div class="project-slider">
+                        <div class="slide active"><img src="images/BondNest/Screenshot 2026-09-16 180654.png" alt="BondNest"></div>
+                        <div class="slide"><img src="images/BondNest/Screenshot 2026-09-16 180757.png" alt="BondNest"></div>
+                        <div class="slide"><img src="images/BondNest/Screenshot 2026-09-16 180811.png" alt="BondNest"></div>
+                        <div class="slide"><img src="images/BondNest/Screenshot 2026-09-16 180821.png" alt="BondNest"></div>
                     </div>
                     <div class="project-info">
                         <h3>BondNest</h3>
-                        <p>Social Community Platform</p>
+                        <p>Social platform for community engagement and networking</p>
+                        <div class="tech-stack">
+                            <span>PHP</span>
+                            <span>MySQL</span>
+                            <span>JavaScript</span>
+                        </div>
                     </div>
                 </div>
                 <div class="project-card" data-project="2">
-                    <div class="project-image">
-                        <img src="images/Aquasphere/Screenshot 2026-09-12 154203.png" alt="AquaSphere">
+                    <div class="project-slider">
+                        <div class="slide active"><img src="images/Aquasphere/Screenshot 2026-09-12 154203.png" alt="AquaSphere"></div>
+                        <div class="slide"><img src="images/Aquasphere/Screenshot 2026-09-12 154332.png" alt="AquaSphere"></div>
+                        <div class="slide"><img src="images/Aquasphere/Screenshot 2026-09-16 180902.png" alt="AquaSphere"></div>
+                        <div class="slide"><img src="images/Aquasphere/Screenshot 2026-09-16 180943.png" alt="AquaSphere"></div>
                     </div>
                     <div class="project-info">
                         <h3>AquaSphere</h3>
-                        <p>E-Commerce Water Products</p>
+                        <p>E-commerce platform for water products with cart and checkout</p>
+                        <div class="tech-stack">
+                            <span>HTML/CSS</span>
+                            <span>JavaScript</span>
+                            <span>PHP</span>
+                        </div>
                     </div>
                 </div>
                 <div class="project-dots">
@@ -124,9 +148,22 @@
             });
         });
 
+        // Auto-rotate projects
         setInterval(() => {
             showProject((currentProject + 1) % cards.length);
-        }, 4000);
+        }, 5000);
+
+        // Image Sliders within each project
+        document.querySelectorAll('.project-slider').forEach(slider => {
+            const slides = slider.querySelectorAll('.slide');
+            let currentSlide = 0;
+
+            setInterval(() => {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }, 2000);
+        });
     </script>
 </body>
 </html>
