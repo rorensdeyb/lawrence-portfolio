@@ -23,7 +23,7 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
 }
 
 .preloader.hide {
@@ -31,29 +31,116 @@ body {
     visibility: hidden;
 }
 
+.preloader-content {
+    text-align: center;
+    position: relative;
+}
+
 .hello-text {
     font-size: 72px;
     font-weight: 700;
     color: #1a1a1a;
-    animation: helloAnim 2s ease-in-out forwards;
+    animation: helloIn 0.8s ease-out forwards, helloOut 0.6s ease-in 1.2s forwards;
+    opacity: 0;
 }
 
-@keyframes helloAnim {
+@keyframes helloIn {
     0% {
         opacity: 0;
-        transform: translateY(30px) scale(0.9);
+        transform: translateY(30px);
     }
-    30% {
+    100% {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: translateY(0);
     }
-    70% {
+}
+
+@keyframes helloOut {
+    0% {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: translateY(0);
     }
     100% {
         opacity: 0;
-        transform: translateY(-30px) scale(0.9);
+        transform: translateY(-30px);
+    }
+}
+
+.welcome-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+}
+
+.welcome-line {
+    font-size: 36px;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.line-2 {
+    margin-top: 5px;
+}
+
+.word {
+    display: inline-block;
+    opacity: 0;
+}
+
+.word-welcome {
+    animation: slideFromLeft 0.6s ease-out 1.8s forwards;
+}
+
+.word-tomy {
+    animation: slideFromLeft 0.6s ease-out 2.4s forwards;
+}
+
+.word-portfolio {
+    animation: slideFromBottom 0.6s ease-out 3s forwards;
+}
+
+.word-website {
+    animation: slideFromBottom 0.6s ease-out 3.6s forwards;
+}
+
+@keyframes slideFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.preloader.hide .welcome-text {
+    animation: welcomeOut 0.6s ease-in forwards;
+}
+
+@keyframes welcomeOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-30px);
     }
 }
 
