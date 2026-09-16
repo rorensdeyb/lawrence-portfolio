@@ -25,8 +25,8 @@
         <!-- Hero Section -->
         <section id="home" class="hero">
             <div class="hero-content">
-                <h1>Hi, I'm Lawrence</h1>
-                <h2>Web & Mobile Application Developer</h2>
+                <h1>Hi, I'm <span class="shiny-text">Lawrence</span></h1>
+                <h2><span class="typing-text" id="typing"></span></h2>
                 <p class="description">
                     I'm an IT student specializing in Web and Mobile Application Development. 
                     I enjoy turning ideas into functional applications, from planning and 
@@ -78,5 +78,20 @@
             </div>
         </section>
     </div>
+    <script>
+        const text = "Web & Mobile Application Developer";
+        const typingElement = document.getElementById("typing");
+        let index = 0;
+
+        function type() {
+            if (index < text.length) {
+                typingElement.textContent += text.charAt(index);
+                index++;
+                setTimeout(type, 100);
+            }
+        }
+
+        type();
+    </script>
 </body>
 </html>
