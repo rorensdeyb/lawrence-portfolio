@@ -49,31 +49,38 @@
                     </div>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="profile-circle">
-                    <div class="profile-placeholder">
-                        <i class="fas fa-user"></i>
+            <div class="project-preview">
+                <div class="project-card active" data-project="0">
+                    <div class="project-image">
+                        <img src="images/DiariCore/Screenshot 2026-09-16 180234.png" alt="DiariCore">
+                    </div>
+                    <div class="project-info">
+                        <h3>DiariCore</h3>
+                        <p>AI-Powered Diary System</p>
                     </div>
                 </div>
-                <div class="experience-cards">
-                    <div class="card">
-                        <div class="card-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <span>2+ Years of Experience</span>
+                <div class="project-card" data-project="1">
+                    <div class="project-image">
+                        <img src="images/BondNest/Screenshot 2026-09-16 180654.png" alt="BondNest">
                     </div>
-                    <div class="card">
-                        <div class="card-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <span>Javascript Main Language</span>
+                    <div class="project-info">
+                        <h3>BondNest</h3>
+                        <p>Social Community Platform</p>
                     </div>
-                    <div class="card">
-                        <div class="card-icon">
-                            <i class="fas fa-desktop"></i>
-                        </div>
-                        <span>Fullstack developer</span>
+                </div>
+                <div class="project-card" data-project="2">
+                    <div class="project-image">
+                        <img src="images/Aquasphere/Screenshot 2026-09-12 154203.png" alt="AquaSphere">
                     </div>
+                    <div class="project-info">
+                        <h3>AquaSphere</h3>
+                        <p>E-Commerce Water Products</p>
+                    </div>
+                </div>
+                <div class="project-dots">
+                    <span class="dot active" data-index="0"></span>
+                    <span class="dot" data-index="1"></span>
+                    <span class="dot" data-index="2"></span>
                 </div>
             </div>
         </section>
@@ -97,6 +104,29 @@
         }
 
         requestAnimationFrame(type);
+
+        // Project Slider
+        const cards = document.querySelectorAll('.project-card');
+        const dots = document.querySelectorAll('.dot');
+        let currentProject = 0;
+
+        function showProject(index) {
+            cards.forEach(card => card.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            cards[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentProject = index;
+        }
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                showProject(parseInt(dot.dataset.index));
+            });
+        });
+
+        setInterval(() => {
+            showProject((currentProject + 1) % cards.length);
+        }, 4000);
     </script>
 </body>
 </html>
