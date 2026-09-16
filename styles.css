@@ -65,16 +65,16 @@ body {
 .hero {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start;
     gap: 80px;
     min-height: calc(100vh - 120px);
-    padding: 20px 0;
+    padding: 10px 0;
 }
 
 .hero-content {
     flex: 1;
     max-width: 650px;
-    margin-bottom: 60px;
+    padding-top: 20px;
 }
 
 .hero-content h1 {
@@ -184,7 +184,6 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    align-self: center;
 }
 
 .profile-circle {
