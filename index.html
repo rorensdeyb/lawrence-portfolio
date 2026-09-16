@@ -9,24 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Preloader -->
-    <div class="preloader" id="preloader">
-        <div class="preloader-content">
-            <div class="hello-text">Hello!</div>
-            <div class="welcome-text">
-                <div class="welcome-line line-1">
-                    <span class="word word-welcome">Welcome</span>
-                    <span class="word word-tomy">to my</span>
-                </div>
-                <div class="welcome-line line-2">
-                    <span class="word word-portfolio">Portfolio</span>
-                    <span class="word word-website">Website</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container" id="main-content">
+    <div class="container">
         <!-- Navbar -->
         <nav class="navbar">
             <div class="logo">PORTFOLIO.</div>
@@ -127,19 +110,6 @@
         </section>
     </div>
     <script>
-        // Preloader
-        const preloader = document.getElementById('preloader');
-        const mainContent = document.getElementById('main-content');
-        
-        // Hide main content initially
-        mainContent.style.opacity = '0';
-        
-        // After welcome animation completes, hide preloader and show content
-        setTimeout(() => {
-            preloader.classList.add('hide');
-            mainContent.style.opacity = '1';
-        }, 5500);
-
         const text = "Web & Mobile Application Developer";
         const typingElement = document.getElementById("typing");
         let index = 0;
@@ -157,9 +127,7 @@
             }
         }
 
-        setTimeout(() => {
-            requestAnimationFrame(type);
-        }, 5500);
+        requestAnimationFrame(type);
 
         // Project Slider
         const cards = document.querySelectorAll('.project-card');

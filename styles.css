@@ -11,143 +11,6 @@ body {
     color: #1a1a1a;
 }
 
-/* Preloader */
-.preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
-}
-
-.preloader.hide {
-    opacity: 0;
-    visibility: hidden;
-}
-
-.preloader-content {
-    text-align: center;
-    position: relative;
-}
-
-.hello-text {
-    font-size: 72px;
-    font-weight: 700;
-    color: #1a1a1a;
-    animation: helloIn 0.8s ease-out forwards, helloOut 0.6s ease-in 1.2s forwards;
-    opacity: 0;
-}
-
-@keyframes helloIn {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes helloOut {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-}
-
-.welcome-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: auto;
-}
-
-.welcome-line {
-    font-size: 36px;
-    font-weight: 600;
-    color: #333;
-    line-height: 1.4;
-    white-space: nowrap;
-}
-
-.line-2 {
-    margin-top: 5px;
-}
-
-.word {
-    display: inline-block;
-    opacity: 0;
-}
-
-.word-welcome {
-    animation: slideFromLeft 0.6s ease-out 1.8s forwards;
-}
-
-.word-tomy {
-    animation: slideFromLeft 0.6s ease-out 2.4s forwards;
-}
-
-.word-portfolio {
-    animation: slideFromBottom 0.6s ease-out 3s forwards;
-}
-
-.word-website {
-    animation: slideFromBottom 0.6s ease-out 3.6s forwards;
-}
-
-@keyframes slideFromLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideFromBottom {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.preloader.hide .welcome-text {
-    animation: welcomeOut 0.6s ease-in forwards;
-}
-
-@keyframes welcomeOut {
-    0% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-}
-
-#main-content {
-    transition: opacity 0.5s ease-in;
-}
-
 .container {
     max-width: 1400px;
     margin: 0 auto;
@@ -327,7 +190,7 @@ body {
 
 .project-card {
     position: absolute;
-    width: 540px;
+    width: 460px;
     opacity: 0;
     transform: translateX(50px) rotateY(-5deg);
     transition: all 0.6s ease-out;
@@ -342,12 +205,12 @@ body {
 
 .project-slider {
     width: 100%;
-    border-radius: 18px;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
     background: white;
     position: relative;
-    height: 340px;
+    height: 280px;
 }
 
 .slide {
@@ -370,27 +233,27 @@ body {
 }
 
 .project-info {
-    padding: 24px 0 0;
+    padding: 18px 0 0;
     text-align: center;
 }
 
 .project-info h3 {
-    font-size: 28px;
+    font-size: 22px;
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     color: #1a1a1a;
 }
 
 .project-info p {
-    font-size: 15px;
-    color: #555;
-    margin-bottom: 14px;
-    line-height: 1.5;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 10px;
+    line-height: 1.4;
 }
 
 .tech-stack {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     justify-content: center;
     flex-wrap: wrap;
 }
@@ -398,9 +261,9 @@ body {
 .tech-stack span {
     background: #1a1a1a;
     color: white;
-    padding: 8px 16px;
-    border-radius: 25px;
-    font-size: 13px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.5px;
 }
@@ -443,11 +306,11 @@ body {
     }
 
     .project-card {
-        width: 460px;
+        width: 380px;
     }
 
     .project-slider {
-        height: 290px;
+        height: 240px;
     }
 }
 
@@ -478,7 +341,7 @@ body {
     .project-card {
         position: relative;
         width: 100%;
-        max-width: 540px;
+        max-width: 460px;
     }
 }
 
@@ -513,20 +376,12 @@ body {
     }
 
     .project-slider {
-        height: 220px;
-    }
-
-    .project-info h3 {
-        font-size: 22px;
-    }
-
-    .project-info p {
-        font-size: 13px;
+        height: 200px;
     }
 
     .tech-stack span {
-        font-size: 11px;
-        padding: 6px 12px;
+        font-size: 10px;
+        padding: 4px 10px;
     }
 }
 
