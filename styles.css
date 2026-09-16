@@ -20,9 +20,8 @@ body {
 /* Navbar */
 .navbar {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 80px;
     background: white;
     border-radius: 60px;
     padding: 25px 60px;
@@ -39,6 +38,8 @@ body {
 .nav-links {
     display: flex;
     gap: 45px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .nav-links a {
@@ -330,8 +331,6 @@ body {
 /* Typing Animation */
 .typing-text {
     display: inline;
-    border-right: 3px solid #1a1a1a;
-    animation: blink 0.7s step-end infinite;
 }
 
 @keyframes blink {
