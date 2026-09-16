@@ -23,7 +23,7 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+    transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
 }
 
 .preloader.hide {
@@ -39,7 +39,7 @@ body {
     font-size: 72px;
     font-weight: 700;
     color: #1a1a1a;
-    animation: helloIn 1s ease-out forwards;
+    animation: helloIn 0.8s ease-out forwards, helloOut 0.6s ease-in 1.2s forwards;
     opacity: 0;
 }
 
@@ -54,10 +54,25 @@ body {
     }
 }
 
+@keyframes helloOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+}
+
 .welcome-text {
-    margin-top: 20px;
+    margin-top: 15px;
     opacity: 0;
-    animation: welcomeIn 1s ease-out 1s forwards;
+    animation: welcomeFadeIn 0.3s ease-out 1.8s forwards;
+}
+
+@keyframes welcomeFadeIn {
+    to { opacity: 1; }
 }
 
 .welcome-line {
@@ -65,13 +80,54 @@ body {
     font-size: 36px;
     font-weight: 600;
     color: #333;
-    line-height: 1.3;
+    line-height: 1.4;
+    overflow: hidden;
 }
 
-@keyframes welcomeIn {
+.word {
+    display: inline-block;
+    opacity: 0;
+}
+
+.word-left {
+    animation: slideFromLeft 0.7s ease-out forwards;
+}
+
+.line-1 .word:nth-child(1) {
+    animation-delay: 2s;
+}
+
+.line-1 .word:nth-child(2) {
+    animation-delay: 2.2s;
+}
+
+.word-up {
+    animation: slideFromBottom 0.7s ease-out forwards;
+}
+
+.line-2 .word:nth-child(1) {
+    animation-delay: 2.4s;
+}
+
+.line-2 .word:nth-child(2) {
+    animation-delay: 2.6s;
+}
+
+@keyframes slideFromLeft {
     0% {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideFromBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
     }
     100% {
         opacity: 1;
@@ -79,12 +135,11 @@ body {
     }
 }
 
-.preloader.hide .hello-text,
 .preloader.hide .welcome-text {
-    animation: textOut 0.5s ease-in forwards;
+    animation: welcomeOut 0.6s ease-in forwards;
 }
 
-@keyframes textOut {
+@keyframes welcomeOut {
     0% {
         opacity: 1;
         transform: translateY(0);

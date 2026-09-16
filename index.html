@@ -14,8 +14,14 @@
         <div class="preloader-content">
             <div class="hello-text">Hello!</div>
             <div class="welcome-text">
-                <span class="welcome-line">Welcome to my</span>
-                <span class="welcome-line">Portfolio Website</span>
+                <span class="welcome-line line-1">
+                    <span class="word word-left">Welcome</span>
+                    <span class="word word-left">to my</span>
+                </span>
+                <span class="welcome-line line-2">
+                    <span class="word word-up">Portfolio</span>
+                    <span class="word word-up">Website</span>
+                </span>
             </div>
         </div>
     </div>
@@ -132,7 +138,7 @@
         setTimeout(() => {
             preloader.classList.add('hide');
             mainContent.style.opacity = '1';
-        }, 3000);
+        }, 3500);
 
         const text = "Web & Mobile Application Developer";
         const typingElement = document.getElementById("typing");
@@ -153,7 +159,7 @@
 
         setTimeout(() => {
             requestAnimationFrame(type);
-        }, 3000);
+        }, 3500);
 
         // Project Slider
         const cards = document.querySelectorAll('.project-card');
