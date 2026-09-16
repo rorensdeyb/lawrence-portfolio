@@ -14,19 +14,28 @@ body {
 .container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 20px 40px 20px;
+    padding: 110px 40px 20px;
 }
 
 /* Navbar */
 .navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 80px);
+    max-width: 1400px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: white;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 60px;
-    padding: 25px 60px;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-    margin-bottom: 30px;
+    padding: 20px 50px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
 .logo {
@@ -46,19 +55,21 @@ body {
     text-decoration: none;
     color: #666;
     font-weight: 600;
-    font-size: 20px;
-    padding: 8px 12px;
-    border-radius: 8px;
+    font-size: 18px;
+    padding: 10px 18px;
+    border-radius: 30px;
     transition: all 0.3s;
 }
 
 .nav-links a:hover {
     color: #1a1a1a;
-    background: #f0f0f0;
+    background: rgba(0, 0, 0, 0.08);
 }
 
 .nav-links a.active {
     color: #1a1a1a;
+    background: rgba(0, 0, 0, 0.1);
+    font-weight: 700;
 }
 
 /* Hero Section */
@@ -347,19 +358,27 @@ body {
 
 @media (max-width: 768px) {
     .container {
-        padding: 15px 20px;
+        padding: 120px 20px 20px;
     }
 
     .navbar {
-        flex-direction: column;
-        gap: 20px;
-        padding: 20px;
+        width: calc(100% - 40px);
+        padding: 15px 25px;
+    }
+
+    .logo {
+        font-size: 20px;
     }
 
     .nav-links {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 20px;
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+        padding: 8px 14px;
     }
 
     .hero-content h1 {
@@ -407,8 +426,17 @@ body {
     }
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 .navbar {
-    animation: slideDown 0.6s ease-out forwards;
+    animation: fadeIn 0.6s ease-out forwards;
 }
 
 .hero-content h1 {
