@@ -274,9 +274,27 @@
             tapCorner.classList.remove('show');
         }
 
+        function playTapSound() {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(550, ctx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(880, ctx.currentTime + 0.08);
+                gain.gain.setValueAtTime(0.2, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.15);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.16);
+            } catch (err) {}
+        }
+
         if (flipBack) {
             flipBack.addEventListener('click', (e) => {
                 e.stopPropagation();
+                playTapSound();
                 if (revealedCount === 0) {
                     tapCenter.classList.add('hidden');
                     tapCorner.classList.add('show');
