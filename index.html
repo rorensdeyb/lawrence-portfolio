@@ -124,10 +124,10 @@
                         <div class="flip-back" id="flip-back">
                             <div class="flip-header">
                                 <h4>Quick Facts</h4>
-                                <span class="tap-corner" id="tap-corner"><span class="corner-sparks"><i></i><i></i><i></i></span>Tap Tap!</span>
+                                <span class="tap-corner" id="tap-corner">Tap Tap!</span>
                             </div>
                             <div class="tap-center" id="tap-center">
-                                <span class="tap-hand"><i class="fa-regular fa-hand-pointer"></i></span>
+                                <span class="tap-hand"><i class="fa-solid fa-hand-pointer"></i></span>
                                 <span>Tap Tap!</span>
                             </div>
                             <div class="flip-facts" id="flip-facts">
@@ -294,9 +294,13 @@
             } catch (err) {}
         }
 
+        let lastTapTime = 0;
         if (flipBack) {
             flipBack.addEventListener('click', (e) => {
                 e.stopPropagation();
+                const now = Date.now();
+                if (now - lastTapTime < 450) return;
+                lastTapTime = now;
                 playTapSound();
                 if (revealedCount === 0) {
                     tapCenter.classList.add('hidden');

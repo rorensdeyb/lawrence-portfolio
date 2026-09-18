@@ -559,14 +559,15 @@ body {
 
 .flip-header {
     position: relative;
-    text-align: center;
+    text-align: left;
     margin-bottom: 4px;
+    padding-left: 2px;
 }
 
 .flip-header h4 {
     font-size: 22px;
     font-weight: 700;
-    text-align: center;
+    text-align: left;
     letter-spacing: 1px;
 }
 
@@ -583,40 +584,6 @@ body {
 
 .tap-corner.show {
     display: inline-block;
-}
-
-.corner-sparks {
-    position: absolute;
-    top: -12px;
-    left: -6px;
-    width: 24px;
-    height: 12px;
-}
-
-.corner-sparks i {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 2px;
-    height: 8px;
-    background: #ffd75e;
-    border-radius: 2px;
-    transform-origin: bottom center;
-}
-
-.corner-sparks i:nth-child(1) {
-    transform: translateX(-50%) rotate(-28deg);
-    height: 7px;
-}
-
-.corner-sparks i:nth-child(2) {
-    transform: translateX(-50%);
-    height: 10px;
-}
-
-.corner-sparks i:nth-child(3) {
-    transform: translateX(-50%) rotate(28deg);
-    height: 7px;
 }
 
 .tap-center {
