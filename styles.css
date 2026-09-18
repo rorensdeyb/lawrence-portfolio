@@ -552,32 +552,33 @@ body {
     padding: 24px 20px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    gap: 10px;
+    justify-content: center;
+    gap: 12px;
     cursor: pointer;
 }
 
 .flip-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 4px;
     position: relative;
+    text-align: center;
+    margin-bottom: 4px;
 }
 
 .flip-header h4 {
     font-size: 18px;
     font-weight: 700;
+    text-align: center;
     letter-spacing: 1px;
 }
 
 .tap-corner {
     display: none;
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%) rotate(12deg);
     font-size: 11px;
     font-weight: 700;
     color: #ffd75e;
-    transform: rotate(12deg);
 }
 
 .tap-corner.show {
@@ -602,7 +603,7 @@ body {
 .flip-facts {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
 }
 
 .flip-fact {
