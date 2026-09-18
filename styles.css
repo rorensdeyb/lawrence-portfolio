@@ -552,17 +552,13 @@ body {
     padding: 24px 20px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 12px;
     cursor: pointer;
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-}
-
-.flip-back.revealed {
-    justify-content: center;
 }
 
 .flip-header {
@@ -637,7 +633,9 @@ body {
 .flip-facts {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     gap: 12px;
+    min-height: 252px;
 }
 
 .flip-fact {
