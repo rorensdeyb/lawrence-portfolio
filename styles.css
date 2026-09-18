@@ -587,6 +587,17 @@ body {
 
 .tap-corner.show {
     display: inline-block;
+    animation: badgeWiggle 1.6s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes badgeWiggle {
+    0%, 100% { transform: translateY(-50%) rotate(-12deg) scale(1); }
+    10% { transform: translateY(-50%) rotate(-4deg) scale(1.12); }
+    20% { transform: translateY(-50%) rotate(-16deg) scale(1); }
+    30% { transform: translateY(-50%) rotate(-6deg) scale(1.12); }
+    40% { transform: translateY(-50%) rotate(-12deg) scale(1); }
+    60% { transform: translateY(-50%) rotate(-12deg) scale(1); }
 }
 
 .tap-center {
