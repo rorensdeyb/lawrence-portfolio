@@ -555,19 +555,22 @@ body {
     justify-content: flex-start;
     gap: 12px;
     cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .flip-header {
     position: relative;
-    text-align: left;
+    text-align: center;
     margin-bottom: 4px;
-    padding-left: 2px;
 }
 
 .flip-header h4 {
     font-size: 22px;
     font-weight: 700;
-    text-align: left;
+    text-align: center;
     letter-spacing: 1px;
 }
 
