@@ -552,22 +552,79 @@ body {
     padding: 24px 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 12px;
+    justify-content: flex-start;
+    gap: 10px;
+    cursor: pointer;
 }
 
-.flip-back h4 {
+.flip-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 4px;
+    position: relative;
+}
+
+.flip-header h4 {
     font-size: 18px;
     font-weight: 700;
-    text-align: center;
-    margin-bottom: 4px;
     letter-spacing: 1px;
 }
 
-.flip-fact {
+.tap-corner {
+    display: none;
+    font-size: 11px;
+    font-weight: 700;
+    color: #ffd75e;
+    transform: rotate(12deg);
+}
+
+.tap-corner.show {
+    display: inline-block;
+}
+
+.tap-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.tap-center.hidden {
+    display: none;
+}
+
+.flip-facts {
     display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.flip-fact {
+    display: none;
     align-items: flex-start;
     gap: 12px;
+}
+
+.flip-fact.visible {
+    display: flex;
+    animation: factSlideIn 0.4s ease-out;
+}
+
+@keyframes factSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .flip-fact i {

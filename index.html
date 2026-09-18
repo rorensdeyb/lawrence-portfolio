@@ -121,48 +121,54 @@
                         <div class="flip-front">
                             <img src="images/portfolio-profile.jpg" alt="Lawrence Dave P. Tolentino">
                         </div>
-                        <div class="flip-back">
-                            <h4>Quick Facts</h4>
-                            <div class="flip-fact">
-                                <i class="fas fa-graduation-cap"></i>
-                                <div>
-                                    <span>Education</span>
-                                    <p>BSIT – LSPU San Pablo City Campus</p>
-                                </div>
+                        <div class="flip-back" id="flip-back">
+                            <div class="flip-header">
+                                <h4>Quick Facts</h4>
+                                <span class="tap-corner" id="tap-corner">Tap Tap!</span>
                             </div>
-                            <div class="flip-fact">
-                                <i class="fas fa-code"></i>
-                                <div>
-                                    <span>Specialization</span>
-                                    <p>Web and Mobile App Development</p>
+                            <div class="tap-center" id="tap-center">Tap Tap!</div>
+                            <div class="flip-facts" id="flip-facts">
+                                <div class="flip-fact">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <div>
+                                        <span>Education</span>
+                                        <p>BSIT – LSPU San Pablo City Campus</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="flip-fact">
-                                <i class="fas fa-calendar-check"></i>
-                                <div>
-                                    <span>Expected Graduation</span>
-                                    <p>2027</p>
+                                <div class="flip-fact">
+                                    <i class="fas fa-code"></i>
+                                    <div>
+                                        <span>Specialization</span>
+                                        <p>Web and Mobile App Development</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="flip-fact">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <div>
-                                    <span>Location</span>
-                                    <p>Calauan, Laguna, Philippines</p>
+                                <div class="flip-fact">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <div>
+                                        <span>Expected Graduation</span>
+                                        <p>2027</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="flip-fact">
-                                <i class="fas fa-phone"></i>
-                                <div>
-                                    <span>Phone</span>
-                                    <p>0908 113 2527</p>
+                                <div class="flip-fact">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <div>
+                                        <span>Location</span>
+                                        <p>Calauan, Laguna, Philippines</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="flip-fact">
-                                <i class="fas fa-envelope"></i>
-                                <div>
-                                    <span>Email</span>
-                                    <p>lawrencetolentino103004@gmail.com</p>
+                                <div class="flip-fact">
+                                    <i class="fas fa-phone"></i>
+                                    <div>
+                                        <span>Phone</span>
+                                        <p>0908 113 2527</p>
+                                    </div>
+                                </div>
+                                <div class="flip-fact">
+                                    <i class="fas fa-envelope"></i>
+                                    <div>
+                                        <span>Email</span>
+                                        <p>lawrencetolentino103004@gmail.com</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -252,6 +258,41 @@
             el.style.animationPlayState = 'paused';
             observer.observe(el);
         });
+
+        // Quick Facts tap-to-reveal
+        const flipCard = document.querySelector('.flip-card');
+        const flipBack = document.getElementById('flip-back');
+        const tapCenter = document.getElementById('tap-center');
+        const tapCorner = document.getElementById('tap-corner');
+        const flipFacts = document.querySelectorAll('.flip-fact');
+        let revealedCount = 0;
+
+        function resetFacts() {
+            revealedCount = 0;
+            flipFacts.forEach(f => f.classList.remove('visible'));
+            tapCenter.classList.remove('hidden');
+            tapCorner.classList.remove('show');
+        }
+
+        if (flipBack) {
+            flipBack.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (revealedCount === 0) {
+                    tapCenter.classList.add('hidden');
+                    tapCorner.classList.add('show');
+                }
+                if (revealedCount < flipFacts.length) {
+                    flipFacts[revealedCount].classList.add('visible');
+                    revealedCount++;
+                }
+            });
+        }
+
+        if (flipCard) {
+            flipCard.addEventListener('mouseleave', () => {
+                setTimeout(resetFacts, 800);
+            });
+        }
 
         // LSPU floating letters
         const lspuLink = document.getElementById('lspu-link');
