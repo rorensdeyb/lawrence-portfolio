@@ -549,7 +549,7 @@ body {
     background: #1a1a1a;
     color: white;
     transform: rotateY(180deg);
-    padding: 34px 20px 24px;
+    padding: 24px 20px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -634,7 +634,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin-top: -10px;
 }
 
 .flip-fact {
