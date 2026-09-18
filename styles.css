@@ -561,6 +561,10 @@ body {
     -ms-user-select: none;
 }
 
+.flip-back.revealed {
+    justify-content: center;
+}
+
 .flip-header {
     position: relative;
     text-align: center;

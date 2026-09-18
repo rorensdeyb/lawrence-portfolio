@@ -275,6 +275,7 @@
             flipFacts.forEach(f => f.classList.remove('visible'));
             tapCenter.classList.remove('hidden');
             tapCorner.classList.remove('show');
+            flipBack.classList.remove('revealed');
         }
 
         function playTapSound() {
@@ -309,6 +310,9 @@
                 if (revealedCount < flipFacts.length) {
                     flipFacts[revealedCount].classList.add('visible');
                     revealedCount++;
+                    if (revealedCount === flipFacts.length) {
+                        flipBack.classList.add('revealed');
+                    }
                 }
             });
         }
