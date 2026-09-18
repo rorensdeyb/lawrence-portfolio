@@ -333,7 +333,7 @@
             mottoEl.classList.add('show');
             let i = 0;
             let last = 0;
-            const mottoSpeed = 60;
+            const mottoSpeed = 35;
             function step(now) {
                 if (i < mottoText.length) {
                     if (now - last >= mottoSpeed) {
@@ -342,8 +342,6 @@
                         last = now;
                     }
                     requestAnimationFrame(step);
-                } else {
-                    mottoEl.classList.add('centered');
                 }
             }
             requestAnimationFrame(step);

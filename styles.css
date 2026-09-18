@@ -705,10 +705,6 @@ body {
     line-height: 1.7;
     opacity: 0;
     min-height: 30px;
-    text-align: left;
-}
-
-.motto.centered {
     text-align: center;
 }
 
