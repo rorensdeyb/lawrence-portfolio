@@ -828,6 +828,34 @@ body {
     margin-bottom: 0;
 }
 
+.skills-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.skills-row .skill-block {
+    margin-bottom: 0;
+}
+
+.figma-info {
+    padding: 18px 0 0;
+    text-align: center;
+}
+
+.figma-info h4 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #1a1a1a;
+}
+
+.figma-info p {
+    font-size: 14px;
+    color: #666;
+}
+
 .skill-block-header {
     display: flex;
     align-items: flex-start;
@@ -980,6 +1008,10 @@ body {
 /* Responsive Skills */
 @media (max-width: 1024px) {
     .tech-groups {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-row {
         grid-template-columns: 1fr;
     }
 

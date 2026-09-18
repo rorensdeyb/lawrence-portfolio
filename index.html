@@ -193,6 +193,7 @@
                 <h2 class="section-title">Skills</h2>
             </div>
 
+            <div class="skills-row">
             <!-- 1. My Tech Stack -->
             <div class="skill-block">
                 <div class="skill-block-header">
@@ -257,13 +258,6 @@
                 </div>
                 <div class="figma-switches">
                     <div class="switch-group">
-                        <span>Platform</span>
-                        <div class="segmented" id="platformSwitch">
-                            <button class="active" data-platform="pc">PC</button>
-                            <button data-platform="mobile">Mobile</button>
-                        </div>
-                    </div>
-                    <div class="switch-group">
                         <span>Role</span>
                         <div class="segmented" id="roleSwitch">
                             <button class="active" data-role="user">User</button>
@@ -272,31 +266,24 @@
                     </div>
                 </div>
                 <div class="figma-preview">
-                    <div class="figma-view active" data-view="pc-user">
+                    <div class="figma-view active" data-view="user">
                         <div class="slide active"><img src="images/figma-pc-user/Screenshot 2026-09-18 171221.png" alt="PC user wireframe"></div>
                         <div class="slide"><img src="images/figma-pc-user/Screenshot 2026-09-18 171231.png" alt="PC user wireframe"></div>
                         <div class="slide"><img src="images/figma-pc-user/Screenshot 2026-09-18 171249.png" alt="PC user wireframe"></div>
                         <div class="slide"><img src="images/figma-pc-user/Screenshot 2026-09-18 171302.png" alt="PC user wireframe"></div>
                     </div>
-                    <div class="figma-view" data-view="pc-admin">
+                    <div class="figma-view" data-view="admin">
                         <div class="slide active"><img src="images/figma-pc-admin/Screenshot 2026-09-18 170623.png" alt="PC admin wireframe"></div>
                         <div class="slide"><img src="images/figma-pc-admin/Screenshot 2026-09-18 170643.png" alt="PC admin wireframe"></div>
                         <div class="slide"><img src="images/figma-pc-admin/Screenshot 2026-09-18 170705.png" alt="PC admin wireframe"></div>
                         <div class="slide"><img src="images/figma-pc-admin/Screenshot 2026-09-18 170727.png" alt="PC admin wireframe"></div>
                     </div>
-                    <div class="figma-view" data-view="mobile-user">
-                        <div class="slide active"><img src="images/figma-mobile-user/Screenshot 2026-09-18 165632.png" alt="Mobile user wireframe"></div>
-                        <div class="slide"><img src="images/figma-mobile-user/Screenshot 2026-09-18 165724.png" alt="Mobile user wireframe"></div>
-                        <div class="slide"><img src="images/figma-mobile-user/Screenshot 2026-09-18 165801.png" alt="Mobile user wireframe"></div>
-                        <div class="slide"><img src="images/figma-mobile-user/Screenshot 2026-09-18 165820.png" alt="Mobile user wireframe"></div>
-                    </div>
-                    <div class="figma-view" data-view="mobile-admin">
-                        <div class="slide active"><img src="images/figma-mobile-admin/Screenshot 2026-09-18 170234.png" alt="Mobile admin wireframe"></div>
-                        <div class="slide"><img src="images/figma-mobile-admin/Screenshot 2026-09-18 170245.png" alt="Mobile admin wireframe"></div>
-                        <div class="slide"><img src="images/figma-mobile-admin/Screenshot 2026-09-18 170258.png" alt="Mobile admin wireframe"></div>
-                        <div class="slide"><img src="images/figma-mobile-admin/Screenshot 2026-09-18 170309.png" alt="Mobile admin wireframe"></div>
-                    </div>
                 </div>
+                <div class="figma-info">
+                    <h4 id="figmaCaption">User Wireframes</h4>
+                    <p>Low-fidelity PC wireframes</p>
+                </div>
+            </div>
             </div>
 
             <!-- 3. AI-Assisted Development -->
@@ -414,34 +401,30 @@
             observer.observe(el);
         });
 
-        // Figma preview switches (Platform x Role)
-        const platformSwitch = document.getElementById('platformSwitch');
+        // Figma preview switch (Role: User / Admin)
         const roleSwitch = document.getElementById('roleSwitch');
         const figmaViews = document.querySelectorAll('.figma-view');
-        let currentPlatform = 'pc';
-        let currentRole = 'user';
+        const figmaCaption = document.getElementById('figmaCaption');
+        const figmaCaptions = {
+            user: 'User Wireframes',
+            admin: 'Admin Wireframes'
+        };
 
-        function showFigmaView() {
+        function showFigmaView(role) {
             figmaViews.forEach(view => {
-                view.classList.toggle('active', view.dataset.view === `${currentPlatform}-${currentRole}`);
+                view.classList.toggle('active', view.dataset.view === role);
             });
+            if (figmaCaption && figmaCaptions[role]) {
+                figmaCaption.textContent = figmaCaptions[role];
+            }
         }
 
-        if (platformSwitch && roleSwitch) {
-            platformSwitch.querySelectorAll('button').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    platformSwitch.querySelectorAll('button').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    currentPlatform = btn.dataset.platform;
-                    showFigmaView();
-                });
-            });
+        if (roleSwitch) {
             roleSwitch.querySelectorAll('button').forEach(btn => {
                 btn.addEventListener('click', () => {
                     roleSwitch.querySelectorAll('button').forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
-                    currentRole = btn.dataset.role;
-                    showFigmaView();
+                    showFigmaView(btn.dataset.role);
                 });
             });
         }
