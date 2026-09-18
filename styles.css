@@ -483,30 +483,29 @@ body {
 
 /* About Section */
 .about-section {
-    padding: 10px 0 0;
-    min-height: calc(100vh - 130px);
+    padding: 80px 0;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .about-header {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 60px;
 }
 
 .section-title {
-    font-size: 52px;
+    font-size: 72px;
     font-weight: 700;
     color: #1a1a1a;
     letter-spacing: -1px;
-    line-height: 1;
 }
 
 .about-content {
     display: flex;
-    align-items: flex-start;
-    gap: 50px;
+    align-items: center;
+    gap: 80px;
 }
 
 .about-image {
@@ -516,8 +515,8 @@ body {
 
 .about-image img {
     display: block;
-    width: 280px;
-    height: 350px;
+    width: 320px;
+    height: 400px;
     object-fit: cover;
     border-radius: 20px;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
@@ -528,10 +527,10 @@ body {
 }
 
 .about-text p {
-    font-size: 15px;
-    line-height: 1.7;
+    font-size: 16px;
+    line-height: 1.9;
     color: #555;
-    margin-bottom: 14px;
+    margin-bottom: 22px;
 }
 
 .about-text p:last-child {
