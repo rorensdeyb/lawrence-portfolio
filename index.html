@@ -253,7 +253,7 @@
             observer.observe(el);
         });
 
-        // Motto flicker typing, few seconds after landing on About
+        // Motto typing, same style as hero typing
         const mottoText = "AI helps me build faster. My skills and understanding determine what I build.";
         const mottoEl = document.getElementById('motto');
         const mottoTypingEl = document.getElementById('motto-typing');
@@ -271,20 +271,18 @@
         mottoObserver.observe(document.getElementById('about'));
 
         function startMottoTyping() {
-            mottoEl.classList.add('show', 'flickering');
+            mottoEl.classList.add('show');
             let i = 0;
             let last = 0;
+            const mottoSpeed = 60;
             function step(now) {
                 if (i < mottoText.length) {
-                    if (now - last >= 45) {
+                    if (now - last >= mottoSpeed) {
                         mottoTypingEl.textContent += mottoText.charAt(i);
                         i++;
                         last = now;
                     }
                     requestAnimationFrame(step);
-                } else {
-                    mottoEl.classList.remove('flickering');
-                    mottoEl.classList.add('steady');
                 }
             }
             requestAnimationFrame(step);

@@ -617,30 +617,19 @@ body {
 }
 
 .motto {
-    margin-top: 6px;
-    font-size: 17px;
+    margin-top: 18px;
+    font-size: 21px;
     font-weight: 600;
     font-style: italic;
     color: #1a1a1a;
     line-height: 1.7;
     opacity: 0;
     min-height: 30px;
+    text-align: center;
 }
 
 .motto.show {
     opacity: 1;
-}
-
-.motto.flickering #motto-typing {
-    animation: bulbFlicker 0.4s linear infinite;
-}
-
-@keyframes bulbFlicker {
-    0%, 100% { opacity: 1; text-shadow: 0 0 12px rgba(255, 200, 50, 0.9); }
-    20% { opacity: 0.3; text-shadow: none; }
-    40% { opacity: 1; text-shadow: 0 0 12px rgba(255, 200, 50, 0.9); }
-    60% { opacity: 0.5; text-shadow: none; }
-    80% { opacity: 1; text-shadow: 0 0 12px rgba(255, 200, 50, 0.9); }
 }
 
 /* About Section Animations */
