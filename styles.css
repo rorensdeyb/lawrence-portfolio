@@ -616,6 +616,29 @@ body {
     margin-bottom: 0;
 }
 
+.lspu-link {
+    color: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px dotted #999;
+    transition: color 0.3s;
+}
+
+.lspu-link:hover {
+    color: #1a1a1a;
+    border-bottom-style: solid;
+}
+
+.lspu-link .float-char {
+    display: inline-block;
+    animation: letterFloat 2.5s ease-in-out infinite;
+}
+
+@keyframes letterFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
 .motto {
     margin-top: 18px;
     font-size: 21px;
