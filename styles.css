@@ -641,14 +641,14 @@ body {
 
 .motto {
     margin-top: 18px;
-    font-size: 21px;
+    font-size: 23px;
     font-weight: 600;
     font-style: italic;
     color: #1a1a1a;
     line-height: 1.7;
     opacity: 0;
     min-height: 30px;
-    text-align: center;
+    text-align: left;
 }
 
 .motto.show {
