@@ -564,7 +564,7 @@ body {
 }
 
 .flip-header h4 {
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 700;
     text-align: center;
     letter-spacing: 1px;
@@ -573,16 +573,50 @@ body {
 .tap-corner {
     display: none;
     position: absolute;
-    right: 6px;
+    right: 2px;
     top: 50%;
-    transform: translateY(-50%) rotate(12deg);
-    font-size: 11px;
+    transform: translateY(-50%) rotate(-12deg);
+    font-size: 13px;
     font-weight: 700;
     color: #ffd75e;
 }
 
 .tap-corner.show {
     display: inline-block;
+}
+
+.corner-sparks {
+    position: absolute;
+    top: -12px;
+    left: -6px;
+    width: 24px;
+    height: 12px;
+}
+
+.corner-sparks i {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    height: 8px;
+    background: #ffd75e;
+    border-radius: 2px;
+    transform-origin: bottom center;
+}
+
+.corner-sparks i:nth-child(1) {
+    transform: translateX(-50%) rotate(-28deg);
+    height: 7px;
+}
+
+.corner-sparks i:nth-child(2) {
+    transform: translateX(-50%);
+    height: 10px;
+}
+
+.corner-sparks i:nth-child(3) {
+    transform: translateX(-50%) rotate(28deg);
+    height: 7px;
 }
 
 .tap-center {
@@ -593,18 +627,22 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
-    font-size: 22px;
+    gap: 10px;
+    font-size: 26px;
     font-weight: 700;
     letter-spacing: 1px;
     cursor: pointer;
 }
 
-.tap-gif {
-    width: 64px;
-    height: 64px;
-    object-fit: contain;
-    filter: brightness(0) invert(1);
+.tap-hand {
+    font-size: 52px;
+    line-height: 1;
+    animation: tapPress 1.2s ease-in-out infinite;
+}
+
+@keyframes tapPress {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(0.85) translateY(4px); opacity: 0.85; }
 }
 
 .tap-center.hidden {
