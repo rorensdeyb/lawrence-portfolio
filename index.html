@@ -207,11 +207,11 @@
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-links a');
 
-        window.addEventListener('scroll', () => {
-            let current = '';
+        function updateActiveLink() {
+            let current = 'home';
             sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (scrollY >= sectionTop - 200) {
+                const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+                if (window.scrollY >= sectionTop - 200) {
                     current = section.getAttribute('id');
                 }
             });
@@ -222,7 +222,11 @@
                     link.classList.add('active');
                 }
             });
-        });
+        }
+
+        window.addEventListener('scroll', updateActiveLink);
+        window.addEventListener('load', updateActiveLink);
+        updateActiveLink();
     </script>
 </body>
 </html>

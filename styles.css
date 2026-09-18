@@ -6,7 +6,6 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 120px;
 }
 
 body {
@@ -16,9 +15,12 @@ body {
     color: #1a1a1a;
 }
 
-#home,
-#about {
+#home {
     scroll-margin-top: 110px;
+}
+
+#about {
+    scroll-margin-top: 0;
 }
 
 .container {
