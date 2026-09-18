@@ -549,7 +549,7 @@ body {
     background: #1a1a1a;
     color: white;
     transform: rotateY(180deg);
-    padding: 24px 20px;
+    padding: 34px 20px 24px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -559,10 +559,6 @@ body {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-}
-
-.flip-back.revealed {
-    justify-content: center;
 }
 
 .flip-header {
