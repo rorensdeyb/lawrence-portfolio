@@ -2201,7 +2201,7 @@ body {
     transform: translateX(120%);
     background: #1a1a1a;
     color: #fff;
-    padding: 16px 16px 20px;
+    padding: 16px 5px 20px;
     border-radius: 14px;
     display: flex;
     align-items: center;
