@@ -1073,7 +1073,7 @@
                         formStatus.className = 'form-status success';
                         contactForm.reset();
                     } else {
-                        formStatus.textContent = 'Something went wrong. Please try again later.';
+                        formStatus.textContent = data.message || 'Something went wrong. Please try again later.';
                         formStatus.className = 'form-status error';
                     }
                 } catch (err) {
