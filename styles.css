@@ -1520,6 +1520,39 @@ body {
     font-size: 12px;
 }
 
+/* Marquee Divider */
+.marquee-divider {
+    overflow: hidden;
+    padding: 30px 0;
+    margin: 0 auto;
+    max-width: 1100px;
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 25s linear infinite;
+}
+
+.marquee-track span {
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: #ccc;
+    padding-right: 0;
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
 /* Responsive Projects */
 @media (max-width: 768px) {
     .projects-section {
