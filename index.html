@@ -247,6 +247,7 @@
             <!-- Timeline: Figma + AI-Assisted -->
             <div class="timeline">
                 <div class="timeline-line"></div>
+                <div class="timeline-line-fill" id="timelineFill"></div>
 
                 <!-- Layer 1: Figma Basic Skills (Left) -->
                 <div class="timeline-item left">
@@ -392,6 +393,28 @@
             el.style.animationPlayState = 'paused';
             observer.observe(el);
         });
+
+        // Timeline scroll animation
+        const timelineFill = document.getElementById('timelineFill');
+        const timeline = document.querySelector('.timeline');
+        const timelineDots = document.querySelectorAll('.timeline-dot');
+
+        function updateTimeline() {
+            if (!timeline || !timelineFill) return;
+            const rect = timeline.getBoundingClientRect();
+            const timelineTop = rect.top;
+            const timelineHeight = rect.height;
+            const windowHeight = window.innerHeight;
+            const scrollProgress = Math.max(0, Math.min(1, (windowHeight * 0.5 - timelineTop) / timelineHeight));
+            timelineFill.style.height = (scrollProgress * 100) + '%';
+            timelineDots.forEach((dot, i) => {
+                const dotPosition = (i + 0.5) / timelineDots.length;
+                dot.classList.toggle('active', scrollProgress >= dotPosition);
+            });
+        }
+
+        window.addEventListener('scroll', updateTimeline);
+        updateTimeline();
 
         // Figma preview switch (Role: User / Admin)
         const roleSwitch = document.getElementById('roleSwitch');
