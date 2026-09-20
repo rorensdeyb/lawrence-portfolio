@@ -1407,12 +1407,11 @@ body {
 }
 
 .project-number {
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 32px;
+    font-weight: 800;
     letter-spacing: 3px;
     color: #888;
-    display: block;
-    margin-bottom: 8px;
+    margin-right: 12px;
 }
 
 .project-name {
@@ -1605,6 +1604,10 @@ body {
     }
 
     .project-name {
+        font-size: 26px;
+    }
+
+    .project-number {
         font-size: 26px;
     }
 
