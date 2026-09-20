@@ -920,7 +920,7 @@ body {
 
 .stack-group:nth-child(1),
 .stack-group:nth-child(2) {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .stack-tile {
