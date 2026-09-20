@@ -202,7 +202,7 @@
                 </div>
             </div>
             <div class="stack-grid">
-                <div class="stack-card">
+                <div class="stack-group">
                     <h4>Languages</h4>
                     <div class="stack-tiles">
                         <div class="stack-tile"><img src="images/Languages/html.webp" alt="HTML logo"><span>HTML</span></div>
@@ -213,7 +213,7 @@
                         <div class="stack-tile"><img src="images/Languages/sql.jpg" alt="SQL logo"><span>SQL</span></div>
                     </div>
                 </div>
-                <div class="stack-card">
+                <div class="stack-group">
                     <h4>Frameworks &amp; Libraries</h4>
                     <div class="stack-tiles">
                         <div class="stack-tile"><img src="images/Framework & Library/flask.png" alt="Flask logo"><span>Flask</span></div>
@@ -223,7 +223,7 @@
                         <div class="stack-tile"><img src="images/Framework & Library/scikit-learn.png" alt="scikit-learn logo"><span>scikit-learn</span></div>
                     </div>
                 </div>
-                <div class="stack-card">
+                <div class="stack-group">
                     <h4>Databases</h4>
                     <div class="stack-tiles">
                         <div class="stack-tile"><img src="images/Databases/mysql.png" alt="MySQL logo"><span>MySQL</span></div>
@@ -231,7 +231,7 @@
                         <div class="stack-tile"><img src="images/Databases/sqlite.jpg" alt="SQLite logo"><span>SQLite</span></div>
                     </div>
                 </div>
-                <div class="stack-card">
+                <div class="stack-group">
                     <h4>Tools &amp; Platforms</h4>
                     <div class="stack-tiles">
                         <div class="stack-tile"><img src="images/Tools & Platform/github.webp" alt="GitHub logo"><span>GitHub</span></div>
@@ -392,7 +392,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.about-header, .about-image, .about-text, .skills-header, .skill-block, .stack-intro, .stack-card').forEach(el => {
+        document.querySelectorAll('.about-header, .about-image, .about-text, .skills-header, .skill-block, .stack-intro, .stack-group').forEach(el => {
             el.style.animationPlayState = 'paused';
             observer.observe(el);
         });
