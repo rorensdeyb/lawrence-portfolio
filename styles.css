@@ -24,7 +24,7 @@ body {
 }
 
 #skills {
-    scroll-margin-top: 100px;
+    scroll-margin-top: 200px;
 }
 
 .container {
@@ -951,7 +951,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
 }
 
 .stack-group {
