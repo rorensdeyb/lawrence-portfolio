@@ -891,7 +891,9 @@ body {
 }
 
 .stack-group:nth-child(1) h4,
-.stack-group:nth-child(2) h4 {
+.stack-group:nth-child(2) h4,
+.stack-group:nth-child(3) h4,
+.stack-group:nth-child(4) h4 {
     font-size: 16px;
     letter-spacing: 3px;
     margin-bottom: 24px;
@@ -904,7 +906,9 @@ body {
 }
 
 .stack-group:nth-child(1) .stack-tiles,
-.stack-group:nth-child(2) .stack-tiles {
+.stack-group:nth-child(2) .stack-tiles,
+.stack-group:nth-child(3) .stack-tiles,
+.stack-group:nth-child(4) .stack-tiles {
     gap: 18px;
 }
 
@@ -921,7 +925,9 @@ body {
 }
 
 .stack-group:nth-child(1) .stack-tile,
-.stack-group:nth-child(2) .stack-tile {
+.stack-group:nth-child(2) .stack-tile,
+.stack-group:nth-child(3) .stack-tile,
+.stack-group:nth-child(4) .stack-tile {
     padding: 22px 26px;
     border-radius: 18px;
     gap: 18px;
@@ -944,7 +950,9 @@ body {
 }
 
 .stack-group:nth-child(1) .stack-tile img,
-.stack-group:nth-child(2) .stack-tile img {
+.stack-group:nth-child(2) .stack-tile img,
+.stack-group:nth-child(3) .stack-tile img,
+.stack-group:nth-child(4) .stack-tile img {
     width: 68px;
     height: 68px;
     border-radius: 10px;
@@ -962,7 +970,9 @@ body {
 }
 
 .stack-group:nth-child(1) .stack-tile span,
-.stack-group:nth-child(2) .stack-tile span {
+.stack-group:nth-child(2) .stack-tile span,
+.stack-group:nth-child(3) .stack-tile span,
+.stack-group:nth-child(4) .stack-tile span {
     font-size: 22px;
     font-weight: 700;
 }
@@ -1135,18 +1145,24 @@ body {
     }
 
     .stack-group:nth-child(1) .stack-tile,
-    .stack-group:nth-child(2) .stack-tile {
+    .stack-group:nth-child(2) .stack-tile,
+    .stack-group:nth-child(3) .stack-tile,
+    .stack-group:nth-child(4) .stack-tile {
         padding: 18px 20px;
     }
 
     .stack-group:nth-child(1) .stack-tile img,
-    .stack-group:nth-child(2) .stack-tile img {
+    .stack-group:nth-child(2) .stack-tile img,
+    .stack-group:nth-child(3) .stack-tile img,
+    .stack-group:nth-child(4) .stack-tile img {
         width: 56px;
         height: 56px;
     }
 
     .stack-group:nth-child(1) .stack-tile span,
-    .stack-group:nth-child(2) .stack-tile span {
+    .stack-group:nth-child(2) .stack-tile span,
+    .stack-group:nth-child(3) .stack-tile span,
+    .stack-group:nth-child(4) .stack-tile span {
         font-size: 19px;
     }
 
