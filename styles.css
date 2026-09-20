@@ -922,9 +922,9 @@ body {
 
 .stack-group:nth-child(1) .stack-tile,
 .stack-group:nth-child(2) .stack-tile {
-    padding: 18px 22px;
-    border-radius: 16px;
-    gap: 16px;
+    padding: 22px 26px;
+    border-radius: 18px;
+    gap: 18px;
 }
 
 .stack-tile:hover {
@@ -938,14 +938,17 @@ body {
     height: 46px;
     object-fit: contain;
     border-radius: 8px;
+    background: white;
+    padding: 3px;
     transition: transform 0.3s ease;
 }
 
 .stack-group:nth-child(1) .stack-tile img,
 .stack-group:nth-child(2) .stack-tile img {
-    width: 60px;
-    height: 60px;
+    width: 68px;
+    height: 68px;
     border-radius: 10px;
+    padding: 4px;
 }
 
 .stack-tile:hover img {
@@ -960,7 +963,7 @@ body {
 
 .stack-group:nth-child(1) .stack-tile span,
 .stack-group:nth-child(2) .stack-tile span {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 700;
 }
 
@@ -1133,18 +1136,18 @@ body {
 
     .stack-group:nth-child(1) .stack-tile,
     .stack-group:nth-child(2) .stack-tile {
-        padding: 14px 18px;
+        padding: 18px 20px;
     }
 
     .stack-group:nth-child(1) .stack-tile img,
     .stack-group:nth-child(2) .stack-tile img {
-        width: 50px;
-        height: 50px;
+        width: 56px;
+        height: 56px;
     }
 
     .stack-group:nth-child(1) .stack-tile span,
     .stack-group:nth-child(2) .stack-tile span {
-        font-size: 17px;
+        font-size: 19px;
     }
 
     .skill-block {
