@@ -1666,73 +1666,51 @@ body {
     margin-bottom: 24px;
 }
 
-/* Certiport Card */
-.certiport-card {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    background: white;
+/* Certiport Image Card */
+.certiport-image-card {
+    display: block;
+    position: relative;
     border-radius: 16px;
-    padding: 24px 30px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    border: 1px solid #d0d0d0;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    max-width: 500px;
 }
 
-.certiport-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+.certiport-image-card:hover {
+    border-color: #1a1a1a;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
-.certiport-icon {
-    width: 56px;
-    height: 56px;
-    background: linear-gradient(135deg, #1a1a1a, #333);
-    border-radius: 14px;
+.certiport-image-card img {
+    width: 100%;
+    display: block;
+}
+
+.certiport-arrow {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    background: #1a1a1a;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
+    opacity: 0;
+    transform: translate(8px, -8px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.certiport-icon i {
+.certiport-arrow i {
     color: #fff;
-    font-size: 22px;
-}
-
-.certiport-info {
-    flex: 1;
-}
-
-.certiport-info h4 {
-    font-size: 18px;
-    font-weight: 700;
-    color: #1a1a1a;
-    margin-bottom: 4px;
-}
-
-.certiport-info p {
     font-size: 14px;
-    color: #666;
 }
 
-.certiport-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 22px;
-    background: #1a1a1a;
-    color: #fff;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
-    transition: background 0.3s ease, transform 0.3s ease;
-    white-space: nowrap;
-}
-
-.certiport-btn:hover {
-    background: #333;
-    transform: translateY(-2px);
+.certiport-image-card:hover .certiport-arrow {
+    opacity: 1;
+    transform: translate(0, 0);
 }
 
 /* Badges Grid */
@@ -1874,10 +1852,5 @@ body {
     .badges-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 14px;
-    }
-
-    .certiport-card {
-        flex-direction: column;
-        text-align: center;
     }
 }
