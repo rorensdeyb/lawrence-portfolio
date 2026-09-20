@@ -1129,13 +1129,13 @@ body {
 .skill-block-header {
     display: flex;
     align-items: flex-start;
-    gap: 18px;
+    gap: 12px;
     margin-bottom: 25px;
 }
 
 .skill-block-icon {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     object-fit: contain;
     flex-shrink: 0;
 }
