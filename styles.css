@@ -933,6 +933,24 @@ body {
     padding: 12px 16px;
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     cursor: default;
+    position: relative;
+    overflow: hidden;
+}
+
+.stack-tile::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border-radius: inherit;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.stack-tile:hover::after {
+    opacity: 0;
 }
 
 .stack-group:nth-child(1) .stack-tile,
