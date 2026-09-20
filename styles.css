@@ -506,6 +506,16 @@ body {
     letter-spacing: -1px;
 }
 
+.section-subtitle {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 12px;
+}
+
 .about-content {
     display: flex;
     align-items: center;
@@ -951,7 +961,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    margin-bottom: 60px;
+    margin-bottom: 80px;
 }
 
 .stack-group {
