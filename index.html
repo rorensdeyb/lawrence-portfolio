@@ -828,29 +828,34 @@
         // Scroll-driven marquee
         const marqueeTracks = document.querySelectorAll('.marquee-track');
         let marqueeOffset = 0;
-        let marqueeVelocity = 0.3;
-        let lastScrollY = window.scrollY;
+        let marqueeVelocity = 1;
+        let scrollDeltaAccum = 0;
         let lastScrollTime = performance.now();
-        let scrollTimeout = null;
-        let isScrolling = false;
+
+        window.addEventListener('scroll', () => {
+            const now = performance.now();
+            const dt = Math.max((now - lastScrollTime) / 1000, 0.001);
+            lastScrollTime = now;
+            const raw = (window.scrollY - (window._lastMarqueeScrollY || window.scrollY)) / dt;
+            window._lastMarqueeScrollY = window.scrollY;
+            scrollDeltaAccum += raw * 0.6;
+        }, { passive: true });
 
         function marqueeLoop() {
             const now = performance.now();
-            const dt = (now - lastScrollTime) / 1000;
-            lastScrollTime = now;
+            const dt = Math.min((now - lastScrollTime) / 1000, 0.05);
 
-            if (isScrolling) {
-                const rawVelocity = (window.scrollY - lastScrollY) / (dt || 0.016);
-                lastScrollY = window.scrollY;
-                marqueeVelocity += (rawVelocity * 0.15 - marqueeVelocity) * 0.08;
-            } else {
-                marqueeVelocity *= 0.97;
-                const target = (window.scrollY > lastScrollY ? 0.3 : -0.3);
-                marqueeVelocity += (target - marqueeVelocity) * 0.02;
-                lastScrollY = window.scrollY;
+            marqueeVelocity += scrollDeltaAccum;
+            scrollDeltaAccum = 0;
+
+            marqueeVelocity *= 0.94;
+
+            const absV = Math.abs(marqueeVelocity);
+            if (absV < 0.8 && Math.abs(scrollDeltaAccum) < 0.1) {
+                marqueeVelocity += (1 - marqueeVelocity) * 0.01;
             }
 
-            marqueeOffset += marqueeVelocity * dt * 60;
+            marqueeOffset += marqueeVelocity * dt * 80;
 
             const trackWidth = marqueeTracks[0] ? marqueeTracks[0].scrollWidth / 2 : 1000;
             if (marqueeOffset < -trackWidth) marqueeOffset += trackWidth;
@@ -863,13 +868,7 @@
             requestAnimationFrame(marqueeLoop);
         }
 
-        window.addEventListener('scroll', () => {
-            isScrolling = true;
-            lastScrollY = window.scrollY;
-            clearTimeout(scrollTimeout);
-            scrollTimeout = setTimeout(() => { isScrolling = false; }, 120);
-        }, { passive: true });
-
+        window._lastMarqueeScrollY = window.scrollY;
         requestAnimationFrame(marqueeLoop);
     </script>
 </body>
