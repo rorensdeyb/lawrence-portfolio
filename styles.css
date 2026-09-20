@@ -1133,6 +1133,13 @@ body {
     margin-bottom: 25px;
 }
 
+.skill-block-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
 .skill-block-header h3 {
     font-size: 24px;
     font-weight: 700;
