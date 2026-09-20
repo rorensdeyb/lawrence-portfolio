@@ -856,7 +856,7 @@ body {
 .stack-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    gap: 40px;
     margin-bottom: 30px;
 }
 
@@ -890,10 +890,22 @@ body {
     margin-bottom: 18px;
 }
 
+.stack-group:nth-child(1) h4,
+.stack-group:nth-child(2) h4 {
+    font-size: 16px;
+    letter-spacing: 3px;
+    margin-bottom: 24px;
+}
+
 .stack-tiles {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
+}
+
+.stack-group:nth-child(1) .stack-tiles,
+.stack-group:nth-child(2) .stack-tiles {
+    gap: 18px;
 }
 
 .stack-tile {
@@ -908,6 +920,13 @@ body {
     cursor: default;
 }
 
+.stack-group:nth-child(1) .stack-tile,
+.stack-group:nth-child(2) .stack-tile {
+    padding: 18px 22px;
+    border-radius: 16px;
+    gap: 16px;
+}
+
 .stack-tile:hover {
     transform: translateY(-5px) scale(1.02);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
@@ -919,9 +938,14 @@ body {
     height: 46px;
     object-fit: contain;
     border-radius: 8px;
-    background: white;
-    padding: 4px;
     transition: transform 0.3s ease;
+}
+
+.stack-group:nth-child(1) .stack-tile img,
+.stack-group:nth-child(2) .stack-tile img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
 }
 
 .stack-tile:hover img {
@@ -932,6 +956,12 @@ body {
     font-size: 15px;
     font-weight: 600;
     color: white;
+}
+
+.stack-group:nth-child(1) .stack-tile span,
+.stack-group:nth-child(2) .stack-tile span {
+    font-size: 20px;
+    font-weight: 700;
 }
 
 .figma-info {
@@ -1099,6 +1129,22 @@ body {
 @media (max-width: 768px) {
     .skills-section {
         padding: 50px 0;
+    }
+
+    .stack-group:nth-child(1) .stack-tile,
+    .stack-group:nth-child(2) .stack-tile {
+        padding: 14px 18px;
+    }
+
+    .stack-group:nth-child(1) .stack-tile img,
+    .stack-group:nth-child(2) .stack-tile img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .stack-group:nth-child(1) .stack-tile span,
+    .stack-group:nth-child(2) .stack-tile span {
+        font-size: 17px;
     }
 
     .skill-block {
