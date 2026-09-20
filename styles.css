@@ -2197,11 +2197,11 @@ body {
 .toast {
     position: fixed;
     top: 100px;
-    right: 40px;
+    right: 12px;
     transform: translateX(120%);
     background: #1a1a1a;
     color: #fff;
-    padding: 16px 5px 20px;
+    padding: 16px 28px 20px;
     border-radius: 14px;
     display: flex;
     align-items: center;
