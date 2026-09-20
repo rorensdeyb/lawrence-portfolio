@@ -661,37 +661,56 @@
         <section id="contacts" class="contacts-section">
             <div class="contacts-inner">
                 <div class="contacts-left">
-                    <span class="contacts-label">CONNECT</span>
-                    <h2 class="contacts-title">Contact Me</h2>
-                    <p class="contacts-description">I'm open to part-time opportunities, collaborations, and projects where I can apply my skills and continue growing as a developer.</p>
-                    <p class="contacts-description">If you'd like to discuss an opportunity, feel free to reach out.</p>
+                    <h2 class="contacts-title">Let's Connect</h2>
+                    <p class="contacts-description">I'm open to part-time opportunities, collaborations, and projects where I can apply my skills, gain meaningful experience, and continue growing as a developer. If you'd like to connect or discuss a potential opportunity, feel free to reach out.</p>
+                    <span class="contacts-subtitle">YOU CAN ALSO FIND ME ON</span>
+                    <div class="contacts-links">
+                        <a href="https://github.com/rorensdeyb" target="_blank" rel="noopener" class="contacts-link">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://linkedin.com/in/lawrence-dave-tolentino" target="_blank" rel="noopener" class="contacts-link">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="mailto:lawrencetolentino103004@gmail.com" class="contacts-link">
+                            <i class="fas fa-envelope"></i>
+                            <span>Email</span>
+                        </a>
+                    </div>
                 </div>
                 <div class="contacts-right">
-                    <span class="contacts-label">GET IN TOUCH</span>
-                    <p class="contacts-available-label">AVAILABLE FOR</p>
-                    <ul class="contacts-available-list">
-                        <li>Part-time opportunities</li>
-                        <li>Collaborations</li>
-                        <li>Development projects</li>
-                    </ul>
+                    <div class="contacts-form-card">
+                        <h3 class="contacts-form-title">Send me a message</h3>
+                        <form id="contactForm" class="contacts-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <input type="text" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" name="email" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Subject</label>
+                                <input type="text" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Message</label>
+                                <textarea name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="contacts-submit-btn">
+                                <span>Send Message</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                        <div class="form-fallback" style="display:none; margin-top:16px; padding:14px 18px; background:#fff3cd; border:1px solid #ffc107; border-radius:10px; color:#664d03; font-size:14px;">
+                            Form submissions from this domain are blocked. You can reach me directly via <a href="mailto:lawrencetolentino103004@gmail.com" style="color:#000; font-weight:600; text-decoration:underline;">email</a> instead.
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="contacts-buttons">
-                <a href="https://github.com/rorensdeyb" target="_blank" rel="noopener" class="contacts-btn">
-                    <i class="fab fa-github"></i>
-                    <span>GitHub</span>
-                    <i class="fas fa-arrow-up-right-from-square contacts-btn-arrow"></i>
-                </a>
-                <a href="https://linkedin.com/in/lawrence-dave-tolentino" target="_blank" rel="noopener" class="contacts-btn">
-                    <i class="fab fa-linkedin"></i>
-                    <span>LinkedIn</span>
-                    <i class="fas fa-arrow-up-right-from-square contacts-btn-arrow"></i>
-                </a>
-                <a href="mailto:lawrencetolentino103004@gmail.com" class="contacts-btn">
-                    <i class="fas fa-envelope"></i>
-                    <span>Email</span>
-                    <i class="fas fa-arrow-up-right-from-square contacts-btn-arrow"></i>
-                </a>
             </div>
         </section>
     </div>
@@ -1021,6 +1040,22 @@
                 if (e.target === certModal) {
                     certModal.classList.remove('active');
                 }
+            });
+        }
+
+        // Contact form handling
+        const contactForm = document.getElementById('contactForm');
+        const formFallback = document.querySelector('.form-fallback');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const formData = new FormData(contactForm);
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const subject = formData.get('subject');
+                const message = formData.get('message');
+                const mailtoLink = `mailto:lawrencetolentino103004@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${name} (${email})\n\n${message}`)}`;
+                window.location.href = mailtoLink;
             });
         }
     </script>
