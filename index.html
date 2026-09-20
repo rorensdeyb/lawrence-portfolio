@@ -824,6 +824,53 @@
         window.addEventListener('scroll', updateActiveLink);
         window.addEventListener('load', updateActiveLink);
         updateActiveLink();
+
+        // Scroll-driven marquee
+        const marqueeTracks = document.querySelectorAll('.marquee-track');
+        let marqueeOffset = 0;
+        let marqueeVelocity = 0.3;
+        let lastScrollY = window.scrollY;
+        let lastScrollTime = performance.now();
+        let scrollTimeout = null;
+        let isScrolling = false;
+
+        function marqueeLoop() {
+            const now = performance.now();
+            const dt = (now - lastScrollTime) / 1000;
+            lastScrollTime = now;
+
+            if (isScrolling) {
+                const rawVelocity = (window.scrollY - lastScrollY) / (dt || 0.016);
+                lastScrollY = window.scrollY;
+                marqueeVelocity += (rawVelocity * 0.15 - marqueeVelocity) * 0.08;
+            } else {
+                marqueeVelocity *= 0.97;
+                const target = (window.scrollY > lastScrollY ? 0.3 : -0.3);
+                marqueeVelocity += (target - marqueeVelocity) * 0.02;
+                lastScrollY = window.scrollY;
+            }
+
+            marqueeOffset += marqueeVelocity * dt * 60;
+
+            const trackWidth = marqueeTracks[0] ? marqueeTracks[0].scrollWidth / 2 : 1000;
+            if (marqueeOffset < -trackWidth) marqueeOffset += trackWidth;
+            if (marqueeOffset > 0) marqueeOffset -= trackWidth;
+
+            marqueeTracks.forEach(track => {
+                track.style.transform = `translateX(${marqueeOffset}px)`;
+            });
+
+            requestAnimationFrame(marqueeLoop);
+        }
+
+        window.addEventListener('scroll', () => {
+            isScrolling = true;
+            lastScrollY = window.scrollY;
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => { isScrolling = false; }, 120);
+        }, { passive: true });
+
+        requestAnimationFrame(marqueeLoop);
     </script>
 </body>
 </html>
