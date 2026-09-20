@@ -1436,6 +1436,15 @@ body {
     margin-top: 6px;
 }
 
+.project-role {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #999;
+    margin-top: 2px;
+}
+
 .project-gallery {
     position: relative;
     width: 100%;
