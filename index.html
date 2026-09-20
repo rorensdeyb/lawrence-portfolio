@@ -729,6 +729,7 @@
     <div id="toast" class="toast">
         <i class="fas fa-check-circle"></i>
         <span>Message sent successfully!</span>
+        <div class="toast-progress"></div>
     </div>
 
     <script>
@@ -1065,8 +1066,12 @@
         const toast = document.getElementById('toast');
 
         function showToast() {
+            const toastProgress = toast.querySelector('.toast-progress');
+            toastProgress.style.animation = 'none';
+            void toastProgress.offsetWidth;
+            toastProgress.style.animation = 'toast-countdown 5s linear forwards';
             toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 3500);
+            setTimeout(() => toast.classList.remove('show'), 5000);
         }
 
         function playSuccessSound() {
