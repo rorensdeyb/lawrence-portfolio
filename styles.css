@@ -1380,10 +1380,10 @@ body {
 }
 
 .projects-description {
-    font-size: 15px;
+    font-size: 17px;
     line-height: 1.8;
     color: #555;
-    max-width: 800px;
+    max-width: 1100px;
     margin: 15px auto 0;
 }
 
