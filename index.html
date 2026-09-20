@@ -824,53 +824,6 @@
         window.addEventListener('scroll', updateActiveLink);
         window.addEventListener('load', updateActiveLink);
         updateActiveLink();
-
-        // Scroll-driven marquee
-        const marqueeTracks = document.querySelectorAll('.marquee-track');
-        let marqueeOffset = 0;
-        let marqueeVelocity = 1;
-        let scrollDeltaAccum = 0;
-        let lastScrollTime = performance.now();
-
-        window.addEventListener('scroll', () => {
-            const now = performance.now();
-            const dt = Math.max((now - lastScrollTime) / 1000, 0.001);
-            lastScrollTime = now;
-            const raw = (window.scrollY - (window._lastMarqueeScrollY || window.scrollY)) / dt;
-            window._lastMarqueeScrollY = window.scrollY;
-            scrollDeltaAccum += raw * 0.12;
-        }, { passive: true });
-
-        function marqueeLoop() {
-            const now = performance.now();
-            const dt = Math.min((now - lastScrollTime) / 1000, 0.05);
-            lastScrollTime = now;
-
-            marqueeVelocity += scrollDeltaAccum;
-            scrollDeltaAccum = 0;
-
-            marqueeVelocity *= 0.92;
-
-            const absV = Math.abs(marqueeVelocity);
-            if (absV < 0.8 && Math.abs(scrollDeltaAccum) < 0.1) {
-                marqueeVelocity += (1 - marqueeVelocity) * 0.01;
-            }
-
-            marqueeOffset += marqueeVelocity * dt * 40;
-
-            const trackWidth = marqueeTracks[0] ? marqueeTracks[0].scrollWidth / 2 : 1000;
-            if (marqueeOffset < -trackWidth) marqueeOffset += trackWidth;
-            if (marqueeOffset > 0) marqueeOffset -= trackWidth;
-
-            marqueeTracks.forEach(track => {
-                track.style.transform = `translateX(${marqueeOffset}px)`;
-            });
-
-            requestAnimationFrame(marqueeLoop);
-        }
-
-        window._lastMarqueeScrollY = window.scrollY;
-        requestAnimationFrame(marqueeLoop);
     </script>
 </body>
 </html>
