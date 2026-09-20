@@ -1555,7 +1555,7 @@ body {
 .marquee-divider {
     overflow: hidden;
     padding: 0;
-    margin: -80px 0 0;
+    margin: -72px 0 8px;
     width: 100vw;
     margin-left: calc(-50vw + 50%);
 }
@@ -1563,7 +1563,7 @@ body {
 .marquee-track {
     display: flex;
     width: max-content;
-    animation: marquee-scroll 45s linear infinite;
+    animation: marquee-scroll 55s linear infinite;
 }
 
 .marquee-track span {
