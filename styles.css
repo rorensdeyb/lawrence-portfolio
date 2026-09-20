@@ -828,15 +828,117 @@ body {
     margin-bottom: 0;
 }
 
-.skills-row {
+.stack-intro {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 30px;
+    animation: slideDown 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.stack-intro h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+}
+
+.stack-intro p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #555;
+}
+
+.stack-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
     margin-bottom: 30px;
 }
 
-.skills-row .skill-block {
-    margin-bottom: 0;
+.stack-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: slideDown 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.stack-grid .stack-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.stack-grid .stack-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.stack-grid .stack-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.stack-grid .stack-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.stack-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.12);
+}
+
+.stack-card h4 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 18px;
+}
+
+.stack-tiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.stack-tile {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #1a1a1a;
+    border: 2px solid transparent;
+    border-radius: 14px;
+    padding: 12px 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    cursor: default;
+}
+
+.stack-tile:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.stack-tile img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    border-radius: 8px;
+    background: white;
+    padding: 4px;
+    transition: transform 0.3s ease;
+}
+
+.stack-tile:hover img {
+    transform: scale(1.1) rotate(-4deg);
+}
+
+.stack-tile span {
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
 }
 
 .figma-info {
@@ -874,21 +976,6 @@ body {
     font-size: 15px;
     line-height: 1.7;
     color: #555;
-}
-
-.tech-groups {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-}
-
-.tech-group h4 {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #888;
-    margin-bottom: 12px;
 }
 
 .tech-badges {
@@ -1007,11 +1094,7 @@ body {
 
 /* Responsive Skills */
 @media (max-width: 1024px) {
-    .tech-groups {
-        grid-template-columns: 1fr;
-    }
-
-    .skills-row {
+    .stack-grid {
         grid-template-columns: 1fr;
     }
 
