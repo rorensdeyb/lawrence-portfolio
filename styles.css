@@ -2201,7 +2201,7 @@ body {
     transform: translateX(120%);
     background: #1a1a1a;
     color: #fff;
-    padding: 16px 28px 20px;
+    padding: 16px 16px 20px;
     border-radius: 14px;
     display: flex;
     align-items: center;
@@ -2230,7 +2230,7 @@ body {
 .toast-progress {
     position: absolute;
     bottom: 0;
-    left: 0;
+    right: 0;
     height: 3px;
     background: #4caf50;
     border-radius: 0 0 14px 14px;
