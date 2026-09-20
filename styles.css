@@ -1554,25 +1554,26 @@ body {
 /* Marquee Divider */
 .marquee-divider {
     overflow: hidden;
-    padding: 30px 0;
-    margin: 0 auto;
-    max-width: 1100px;
+    padding: 40px 0;
+    margin: 0 -40px;
+    width: calc(100% + 80px);
 }
 
 .marquee-track {
     display: flex;
     width: max-content;
-    animation: marquee-scroll 25s linear infinite;
+    animation: marquee-scroll 28s linear infinite;
 }
 
 .marquee-track span {
     white-space: nowrap;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 6px;
+    font-size: 80px;
+    font-weight: 700;
+    letter-spacing: 12px;
     text-transform: uppercase;
-    color: #ccc;
+    color: #e8e8e8;
     padding-right: 0;
+    line-height: 1;
 }
 
 @keyframes marquee-scroll {
@@ -1581,6 +1582,13 @@ body {
     }
     100% {
         transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 768px) {
+    .marquee-track span {
+        font-size: 40px;
+        letter-spacing: 8px;
     }
 }
 
