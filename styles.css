@@ -1633,3 +1633,249 @@ body {
         height: 250px;
     }
 }
+
+/* Certifications Section */
+.certifications-section {
+    padding: 100px 0 80px;
+}
+
+.certifications-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.certifications-description {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #555;
+    max-width: 1100px;
+    margin: 15px auto 0;
+}
+
+.certifications-block {
+    max-width: 1100px;
+    margin: 0 auto 60px;
+}
+
+.certifications-subtitle {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+}
+
+/* Certiport Card */
+.certiport-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: white;
+    border-radius: 16px;
+    padding: 24px 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.certiport-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.certiport-icon {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #1a1a1a, #333);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.certiport-icon i {
+    color: #fff;
+    font-size: 22px;
+}
+
+.certiport-info {
+    flex: 1;
+}
+
+.certiport-info h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+}
+
+.certiport-info p {
+    font-size: 14px;
+    color: #666;
+}
+
+.certiport-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    background: #1a1a1a;
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+    white-space: nowrap;
+}
+
+.certiport-btn:hover {
+    background: #333;
+    transform: translateY(-2px);
+}
+
+/* Badges Grid */
+.badges-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.badge-card {
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 16px;
+    padding: 24px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.badge-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.badge-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 14px;
+}
+
+.badge-card h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.badge-provider {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 8px;
+}
+
+.badge-date {
+    font-size: 11px;
+    color: #aaa;
+}
+
+/* Certificate Modal */
+.cert-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+}
+
+.cert-modal-overlay.active {
+    display: flex;
+}
+
+.cert-modal {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 420px;
+    width: 90%;
+    position: relative;
+    animation: slideDown 0.4s ease-out;
+}
+
+.cert-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: #f5f5f5;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #555;
+    transition: background 0.2s ease;
+}
+
+.cert-modal-close:hover {
+    background: #e0e0e0;
+}
+
+.cert-modal-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 16px;
+    padding-right: 30px;
+}
+
+.cert-modal-body p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.cert-modal-view {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: #1a1a1a;
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.cert-modal-view:hover {
+    background: #333;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .badges-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    .certiport-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
