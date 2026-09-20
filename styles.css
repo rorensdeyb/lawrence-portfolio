@@ -19,9 +19,12 @@ body {
     scroll-margin-top: 110px;
 }
 
-#about,
-#skills {
+#about {
     scroll-margin-top: 0;
+}
+
+#skills {
+    scroll-margin-top: 100px;
 }
 
 .container {
