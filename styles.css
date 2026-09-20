@@ -846,7 +846,7 @@ body {
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 0;
+    padding: 60px 0;
 }
 
 .timeline-line {
@@ -961,7 +961,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
-    margin-bottom: 80px;
+    margin-bottom: 120px;
 }
 
 .stack-group {
