@@ -1778,13 +1778,36 @@ body {
     transform: translateY(0);
 }
 
-.certifications-subtitle {
+/* Badges Header — inline title + line + count */
+.badges-header {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 24px;
+}
+
+.badges-header-title {
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 3px;
     color: #888;
     text-transform: uppercase;
-    margin-bottom: 24px;
+    white-space: nowrap;
+}
+
+.badges-header-line {
+    flex: 1;
+    height: 0;
+    border-top: 1.5px dashed #ccc;
+    margin: 0 16px;
+}
+
+.badges-header-count {
+    font-size: 14px;
+    font-weight: 700;
+    color: #888;
+    letter-spacing: 1px;
+    white-space: nowrap;
 }
 
 /* Certiport Image Card */
@@ -1993,87 +2016,25 @@ body {
 }
 
 /* Badges Total */
-.badges-total {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    margin-top: 40px;
-    padding: 24px 30px;
-    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-    border-radius: 14px;
-    color: #fff;
-}
-
-.badges-total-number {
-    font-size: 36px;
-    font-weight: 800;
-    letter-spacing: -1px;
-    line-height: 1;
-}
-
-.badges-total-label {
-    font-size: 14px;
-    font-weight: 500;
-    color: #ccc;
-    letter-spacing: 0.5px;
-}
-
-.badges-total-line {
-    width: 1px;
-    height: 28px;
-    background: rgba(255, 255, 255, 0.2);
-    margin: 0 4px;
-}
-
-.badges-total-dots {
-    display: flex;
-    gap: 5px;
-}
-
-.badges-total-dots span {
-    width: 6px;
-    height: 6px;
-    background: #666;
-    border-radius: 50%;
-}
-
-.badges-total-dots span:nth-child(1) {
-    background: #4ade80;
-}
-
-.badges-total-dots span:nth-child(2) {
-    background: #60a5fa;
-}
-
-.badges-total-dots span:nth-child(3) {
-    background: #f472b6;
-}
-
-.credly-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+/* Credly plain link */
+.credly-link-plain {
+    display: block;
+    text-align: center;
     margin-top: 24px;
-    padding: 12px 24px;
-    border: 1px solid #ddd;
-    border-radius: 50px;
     text-decoration: none;
-    color: #333;
+    color: #666;
     font-size: 14px;
     font-weight: 500;
-    transition: all 0.3s ease;
-    background: #fff;
+    transition: color 0.3s ease;
 }
 
-.credly-link:hover {
-    border-color: #333;
-    background: #1a1a1a;
-    color: #fff;
+.credly-link-plain:hover {
+    color: #1a1a1a;
 }
 
-.credly-link i {
+.credly-link-plain i {
     font-size: 11px;
+    margin-left: 4px;
     opacity: 0.6;
 }
 
@@ -2083,15 +2044,22 @@ body {
         gap: 14px;
     }
 
-    .badges-total {
+    .badges-header {
         flex-wrap: wrap;
         justify-content: center;
-        text-align: center;
-        gap: 12px;
+        gap: 8px;
     }
 
-    .badges-total-line {
+    .badges-header-title {
+        flex: none;
+    }
+
+    .badges-header-line {
         display: none;
+    }
+
+    .badges-header-count {
+        flex: none;
     }
 }
 
