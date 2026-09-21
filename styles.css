@@ -1352,6 +1352,14 @@ body {
     padding: 60px 40px;
     max-width: 700px;
     margin: 0 auto;
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: all 0.6s ease-out;
+}
+
+.section-divider.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .section-divider h3 {
@@ -1377,6 +1385,14 @@ body {
 .projects-header {
     text-align: center;
     margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: all 0.6s ease-out;
+}
+
+.projects-header.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .projects-description {
@@ -1642,6 +1658,14 @@ body {
 .certifications-header {
     text-align: center;
     margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: all 0.6s ease-out;
+}
+
+.certifications-header.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .certifications-description {
@@ -1655,6 +1679,14 @@ body {
 .certifications-block {
     max-width: 1100px;
     margin: 0 auto 60px;
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: all 0.6s ease-out;
+}
+
+.certifications-block.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .certifications-subtitle {
@@ -1964,10 +1996,26 @@ body {
 
 .contacts-left {
     flex: 1;
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: all 0.6s ease-out;
+}
+
+.contacts-left.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .contacts-right {
     flex: 1;
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: all 0.6s ease-out 0.2s;
+}
+
+.contacts-right.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .contacts-title {
