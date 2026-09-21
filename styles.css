@@ -2395,21 +2395,22 @@ body {
         margin-top: 0;
         margin-bottom: 20px;
         width: 100%;
-        align-self: center;
+        flex: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .project-card {
         position: relative;
         width: 100%;
-        max-width: 400px;
         left: auto;
         right: auto;
-        margin: 0 auto;
     }
 
     .project-slider {
-        height: 200px;
-        border-radius: 12px;
+        height: 280px;
+        border-radius: 14px;
     }
 
     .project-card .slide img {
