@@ -379,22 +379,23 @@ body {
 
     .navbar {
         width: calc(100% - 40px);
-        padding: 15px 25px;
+        padding: 10px 16px;
+        overflow: hidden;
     }
 
     .logo {
-        font-size: 20px;
+        font-size: 16px;
+        white-space: nowrap;
     }
 
     .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
+        flex-wrap: nowrap;
+        gap: 2px;
     }
 
     .nav-links a {
-        font-size: 14px;
-        padding: 8px 14px;
+        font-size: 11px;
+        padding: 6px 8px;
     }
 
     .hero-content h1 {
@@ -2369,32 +2370,32 @@ body {
         text-align: center;
         min-height: auto;
         padding: 20px 0 40px;
-        gap: 30px;
+        gap: 0;
     }
 
     .hero-content {
-        max-width: 100%;
-        padding-top: 10px;
-        order: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        display: contents;
     }
 
     .hero-content h1 {
         font-size: 38px;
         white-space: normal;
+        order: 1;
+        margin-bottom: 5px;
     }
 
     .hero-content h2 {
         font-size: 22px;
         margin-bottom: 20px;
+        order: 2;
     }
 
     .project-preview {
-        order: 2;
+        order: 3;
         margin-top: 0;
+        margin-bottom: 20px;
         width: 100%;
+        align-self: center;
     }
 
     .project-card {
@@ -2435,7 +2436,7 @@ body {
     }
 
     .description {
-        order: 3;
+        order: 4;
         font-size: 15px;
         line-height: 1.6;
         margin-bottom: 25px;
@@ -2443,12 +2444,13 @@ body {
     }
 
     .buttons {
-        order: 4;
+        order: 5;
         flex-direction: column;
         gap: 12px;
         margin-bottom: 30px;
         width: 100%;
         max-width: 280px;
+        align-self: center;
     }
 
     .btn {
@@ -2459,9 +2461,10 @@ body {
     }
 
     .connect {
-        order: 5;
+        order: 6;
         flex-direction: column;
         gap: 12px;
+        align-self: center;
     }
 
     .connect-label {
