@@ -1113,9 +1113,21 @@
             } catch (err) {}
         }
 
+        // Shared AudioContext - created once, reused for all sounds
+        let sharedAudioCtx = null;
+        function getAudioCtx() {
+            if (!sharedAudioCtx) {
+                sharedAudioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+            if (sharedAudioCtx.state === 'suspended') {
+                sharedAudioCtx.resume();
+            }
+            return sharedAudioCtx;
+        }
+
         function playHoverSound() {
             try {
-                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const ctx = getAudioCtx();
                 const osc = ctx.createOscillator();
                 const gain = ctx.createGain();
                 osc.connect(gain);
@@ -1129,6 +1141,13 @@
                 osc.stop(ctx.currentTime + 0.12);
             } catch (err) {}
         }
+
+        // Resume AudioContext on first user interaction
+        document.addEventListener('click', () => {
+            if (sharedAudioCtx && sharedAudioCtx.state === 'suspended') {
+                sharedAudioCtx.resume();
+            }
+        }, { once: true });
 
         document.querySelectorAll('.stack-tile').forEach(el => {
             el.addEventListener('mouseenter', playHoverSound);
