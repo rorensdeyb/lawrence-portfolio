@@ -2392,24 +2392,21 @@ body {
 
     .project-preview {
         order: 3;
-        margin-top: 0;
-        margin-bottom: 20px;
+        margin: 0 auto 20px;
         width: 100%;
         flex: none;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 
     .project-card {
         position: relative;
-        width: 100%;
+        width: calc(100% - 30px);
+        margin: 0 auto;
         left: auto;
         right: auto;
     }
 
     .project-slider {
-        height: 280px;
+        height: 320px;
         border-radius: 14px;
     }
 
