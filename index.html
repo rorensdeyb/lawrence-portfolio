@@ -1113,19 +1113,6 @@
             });
         }
 
-        // On mobile, open certiport view images in modal instead of new tab
-        document.querySelectorAll('.certiport-view').forEach(link => {
-            link.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    const imgSrc = link.getAttribute('href');
-                    certModalImage.src = imgSrc;
-                    certModalPdfLink.href = imgSrc;
-                    certModal.classList.add('active');
-                }
-            });
-        });
-
         // Contact form handling
         const contactForm = document.getElementById('contactForm');
         const toast = document.getElementById('toast');
