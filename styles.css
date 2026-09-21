@@ -808,13 +808,43 @@ body {
     }
 
     .flip-inner {
-        width: 260px;
-        height: 340px;
+        width: 300px;
+        height: 380px;
     }
 
     .flip-back {
-        padding: 18px 14px;
-        gap: 9px;
+        padding: 20px 16px;
+        gap: 8px;
+    }
+
+    .flip-header h4 {
+        font-size: 20px;
+    }
+
+    .flip-facts {
+        gap: 8px;
+    }
+
+    .flip-fact {
+        gap: 10px;
+        align-items: flex-start;
+    }
+
+    .flip-fact i {
+        width: 28px;
+        height: 28px;
+        min-width: 28px;
+        font-size: 12px;
+    }
+
+    .flip-fact div span {
+        font-size: 9px;
+        letter-spacing: 0.5px;
+    }
+
+    .flip-fact div p {
+        font-size: 11px;
+        line-height: 1.3;
     }
 
     .about-text p {
@@ -1324,6 +1354,12 @@ body {
 @media (max-width: 768px) {
     .skills-section {
         padding: 50px 0;
+    }
+
+    .stack-tile::after {
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: transparent;
     }
 
     .stack-group:nth-child(1) .stack-tile,
@@ -2394,6 +2430,9 @@ body {
         font-size: 38px;
         white-space: normal;
         margin-bottom: 5px;
+        justify-self: start;
+        text-align: left;
+        padding-left: 10px;
     }
 
     .hero-content h2 {
