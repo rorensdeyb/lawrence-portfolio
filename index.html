@@ -13,11 +13,6 @@
         <!-- Navbar -->
         <nav class="navbar">
             <div class="logo">PORTFOLIO.</div>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
             <div class="nav-links">
                 <a href="#home" class="active">Home</a>
                 <a href="#about">About</a>
@@ -758,22 +753,6 @@
     </div>
 
     <script>
-        // Mobile nav toggle
-        const navToggle = document.getElementById('navToggle');
-        const navLinks = document.querySelector('.nav-links');
-        if (navToggle) {
-            navToggle.addEventListener('click', () => {
-                navToggle.classList.toggle('active');
-                navLinks.classList.toggle('open');
-            });
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navToggle.classList.remove('active');
-                    navLinks.classList.remove('open');
-                });
-            });
-        }
-
         const text = "Web & Mobile Application Developer";
         const typingElement = document.getElementById("typing");
         let index = 0;
