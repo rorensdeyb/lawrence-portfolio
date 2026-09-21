@@ -24,7 +24,7 @@ body {
 }
 
 #skills {
-    scroll-margin-top: 200px;
+    scroll-margin-top: 80px;
 }
 
 .container {
@@ -952,7 +952,7 @@ body {
 }
 
 .stack-intro p {
-    font-size: 15px;
+    font-size: 17px;
     line-height: 1.7;
     color: #555;
 }
