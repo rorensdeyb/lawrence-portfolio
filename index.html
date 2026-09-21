@@ -802,9 +802,7 @@
                     card.style.display = i === index ? '' : 'none';
                 }
             });
-            requestAnimationFrame(() => {
-                cards[index].classList.add('active');
-            });
+            cards[index].classList.add('active');
             dots.forEach(dot => dot.classList.remove('active'));
             dots[index].classList.add('active');
             currentProject = index;
