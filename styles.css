@@ -1709,6 +1709,10 @@ body {
         font-size: 40px;
         letter-spacing: 8px;
     }
+
+    .marquee-divider {
+        margin: 0;
+    }
 }
 
 /* Responsive Projects */
@@ -2345,6 +2349,10 @@ body {
     .contacts-inner {
         flex-direction: column;
         padding: 0 24px;
+    }
+
+    .contacts-form-card {
+        display: none;
     }
 
     .contacts-title {
