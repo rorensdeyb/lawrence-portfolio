@@ -1125,9 +1125,19 @@
             return sharedAudioCtx;
         }
 
+        // Unlock AudioContext on first user interaction (click, touch, etc.)
+        function unlockAudio() {
+            getAudioCtx();
+            document.removeEventListener('click', unlockAudio);
+            document.removeEventListener('touchstart', unlockAudio);
+        }
+        document.addEventListener('click', unlockAudio);
+        document.addEventListener('touchstart', unlockAudio);
+
         function playHoverSound() {
             try {
                 const ctx = getAudioCtx();
+                if (ctx.state === 'suspended') return;
                 const osc = ctx.createOscillator();
                 const gain = ctx.createGain();
                 osc.connect(gain);
@@ -1141,13 +1151,6 @@
                 osc.stop(ctx.currentTime + 0.12);
             } catch (err) {}
         }
-
-        // Resume AudioContext on first user interaction
-        document.addEventListener('click', () => {
-            if (sharedAudioCtx && sharedAudioCtx.state === 'suspended') {
-                sharedAudioCtx.resume();
-            }
-        }, { once: true });
 
         document.querySelectorAll('.stack-tile').forEach(el => {
             el.addEventListener('mouseenter', playHoverSound);
