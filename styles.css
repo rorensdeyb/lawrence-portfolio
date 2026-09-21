@@ -1991,14 +1991,9 @@ body {
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    opacity: 0;
-    transform: translate(8px, -8px);
-    transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease;
-}
-
-.cert-modal-image-wrap:hover .cert-modal-pdf-link {
     opacity: 1;
     transform: translate(0, 0);
+    transition: background 0.3s ease;
 }
 
 .cert-modal-pdf-link:hover {
