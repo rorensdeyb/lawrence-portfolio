@@ -23,6 +23,23 @@
             </div>
         </nav>
 
+        <!-- Mobile Burger Menu -->
+        <div class="burger-menu">
+            <button class="burger-btn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="burger-dropdown">
+                <a href="#home" class="active">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#contacts">Contacts</a>
+            </div>
+        </div>
+
         <!-- Hero Section -->
         <section id="home" class="hero">
             <div class="hero-content">
@@ -1037,6 +1054,7 @@
         // Active nav link on scroll
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-links a');
+        const burgerLinks = document.querySelectorAll('.burger-dropdown a');
 
         function updateActiveLink() {
             let current = 'home';
@@ -1048,6 +1066,13 @@
             });
 
             navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+
+            burgerLinks.forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === `#${current}`) {
                     link.classList.add('active');
@@ -1190,6 +1215,29 @@
                     submitBtn.innerHTML = '<span>Try Again</span><i class="fas fa-redo"></i>';
                     submitBtn.disabled = false;
                     setTimeout(() => { submitBtn.innerHTML = originalText; }, 3000);
+                }
+            });
+        }
+
+        // Mobile burger menu
+        const burgerBtn = document.querySelector('.burger-btn');
+        const burgerDropdown = document.querySelector('.burger-dropdown');
+        if (burgerBtn && burgerDropdown) {
+            burgerBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                burgerBtn.classList.toggle('active');
+                burgerDropdown.classList.toggle('active');
+            });
+            burgerDropdown.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    burgerBtn.classList.remove('active');
+                    burgerDropdown.classList.remove('active');
+                });
+            });
+            document.addEventListener('click', (e) => {
+                if (!burgerBtn.contains(e.target) && !burgerDropdown.contains(e.target)) {
+                    burgerBtn.classList.remove('active');
+                    burgerDropdown.classList.remove('active');
                 }
             });
         }

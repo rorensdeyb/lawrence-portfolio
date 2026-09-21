@@ -88,6 +88,11 @@ body {
     font-weight: 700;
 }
 
+/* Mobile Burger Menu - hidden on desktop */
+.burger-menu {
+    display: none;
+}
+
 /* Hero Section */
 .hero {
     display: flex;
@@ -2527,5 +2532,109 @@ body {
     .nav-links a {
         font-size: 11px;
         padding: 6px 8px;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    .burger-menu {
+        display: block;
+        position: fixed;
+        top: 24px;
+        right: 24px;
+        z-index: 1001;
+    }
+
+    .burger-btn {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        animation: burgerFloat 3s ease-in-out infinite;
+        transition: transform 0.3s;
+    }
+
+    .burger-btn span {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: #1a1a1a;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    .burger-btn.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .burger-btn.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .burger-btn.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    @keyframes burgerFloat {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
+    }
+
+    .burger-dropdown {
+        position: absolute;
+        top: 66px;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 16px;
+        padding: 8px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px) scale(0.95);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        min-width: 170px;
+    }
+
+    .burger-dropdown.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0) scale(1);
+    }
+
+    .burger-dropdown a {
+        text-decoration: none;
+        color: #555;
+        font-weight: 600;
+        font-size: 14px;
+        padding: 10px 16px;
+        border-radius: 10px;
+        transition: all 0.2s;
+        white-space: nowrap;
+    }
+
+    .burger-dropdown a.active {
+        background: #1a1a1a;
+        color: white;
+    }
+
+    .burger-dropdown a:not(.active):hover {
+        background: rgba(0, 0, 0, 0.05);
+        color: #1a1a1a;
     }
 }
