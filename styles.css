@@ -809,12 +809,12 @@ body {
 
     .flip-inner {
         width: 300px;
-        height: 380px;
+        height: 340px;
     }
 
     .flip-back {
-        padding: 20px 16px;
-        gap: 8px;
+        padding: 18px 16px;
+        gap: 6px;
     }
 
     .flip-header h4 {
@@ -822,7 +822,7 @@ body {
     }
 
     .flip-facts {
-        gap: 8px;
+        gap: 6px;
     }
 
     .flip-fact {
@@ -835,6 +835,10 @@ body {
         height: 28px;
         min-width: 28px;
         font-size: 12px;
+    }
+
+    .flip-fact div {
+        text-align: left;
     }
 
     .flip-fact div span {
@@ -1367,6 +1371,7 @@ body {
     .stack-group:nth-child(3) .stack-tile,
     .stack-group:nth-child(4) .stack-tile {
         padding: 18px 20px;
+        min-width: 0;
     }
 
     .stack-group:nth-child(1) .stack-tile img,
@@ -1381,7 +1386,11 @@ body {
     .stack-group:nth-child(2) .stack-tile span,
     .stack-group:nth-child(3) .stack-tile span,
     .stack-group:nth-child(4) .stack-tile span {
-        font-size: 19px;
+        font-size: 15px;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     .skill-block {
