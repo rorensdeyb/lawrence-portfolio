@@ -2410,12 +2410,6 @@ body {
         perspective: unset;
     }
 
-    .project-cards-wrapper {
-        position: relative;
-        width: 100%;
-        overflow: hidden;
-    }
-
     .project-card {
         width: calc(100% - 30px) !important;
         max-width: none !important;
@@ -2427,6 +2421,7 @@ body {
 
     .project-card.active {
         position: relative !important;
+        z-index: 1;
     }
 
     .project-card:not(.active) {
