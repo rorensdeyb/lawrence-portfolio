@@ -13,11 +13,6 @@
         <!-- Navbar -->
         <nav class="navbar">
             <div class="logo">PORTFOLIO.</div>
-            <div class="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
             <div class="nav-links">
                 <a href="#home" class="active">Home</a>
                 <a href="#about">About</a>
@@ -1187,29 +1182,6 @@
                     submitBtn.innerHTML = '<span>Try Again</span><i class="fas fa-redo"></i>';
                     submitBtn.disabled = false;
                     setTimeout(() => { submitBtn.innerHTML = originalText; }, 3000);
-                }
-            });
-        }
-
-        // Mobile nav toggle
-        const navToggle = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        if (navToggle && navLinks) {
-            navToggle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                navToggle.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
-            navLinks.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navToggle.classList.remove('active');
-                    navLinks.classList.remove('active');
-                });
-            });
-            document.addEventListener('click', (e) => {
-                if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
-                    navToggle.classList.remove('active');
-                    navLinks.classList.remove('active');
                 }
             });
         }
