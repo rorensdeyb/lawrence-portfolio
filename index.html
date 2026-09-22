@@ -1050,34 +1050,41 @@
             requestAnimationFrame(step);
         }
 
-        // Section subtitle typing, same style as hero typing
-        document.querySelectorAll('.section-subtitle').forEach(sub => {
-            const fullText = sub.textContent;
-            sub.textContent = '';
-            let subStarted = false;
-            const subObserver = new IntersectionObserver((entries) => {
+        // Section subtitle typing, same style as hero typing.
+        // Starts after the below content's 0.6s slide animation finishes.
+        const typeTargets = [...document.querySelectorAll('.section-subtitle')];
+        const dividerH3 = document.querySelector('.section-divider h3');
+        if (dividerH3) typeTargets.push(dividerH3);
+        const TYPE_SPEED = 110;
+        const SLIDE_FINISH_DELAY = 800;
+        typeTargets.forEach(el => {
+            const fullText = el.textContent;
+            el.textContent = '';
+            let typeStarted = false;
+            const typeObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
-                    if (entry.isIntersecting && !subStarted) {
-                        subStarted = true;
-                        let i = 0;
-                        let last = 0;
-                        const subSpeed = 60;
-                        function step(now) {
-                            if (i < fullText.length) {
-                                if (now - last >= subSpeed) {
-                                    sub.textContent += fullText.charAt(i);
-                                    i++;
-                                    last = now;
+                    if (entry.isIntersecting && !typeStarted) {
+                        typeStarted = true;
+                        setTimeout(() => {
+                            let i = 0;
+                            let last = 0;
+                            function step(now) {
+                                if (i < fullText.length) {
+                                    if (now - last >= TYPE_SPEED) {
+                                        el.textContent += fullText.charAt(i);
+                                        i++;
+                                        last = now;
+                                    }
+                                    requestAnimationFrame(step);
                                 }
-                                requestAnimationFrame(step);
                             }
-                        }
-                        requestAnimationFrame(step);
-                        subObserver.disconnect();
+                            requestAnimationFrame(step);
+                        }, SLIDE_FINISH_DELAY);
+                        typeObserver.disconnect();
                     }
                 });
-            }, { threshold: 0.5 });
-            subObserver.observe(sub);
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            typeObserver.observe(el);
         });
 
         // Active nav link on scroll
