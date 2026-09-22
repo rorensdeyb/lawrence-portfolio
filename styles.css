@@ -1068,6 +1068,28 @@ body {
     text-transform: uppercase;
     color: #888;
     margin-bottom: 18px;
+    animation: stackGroupFloat 3s ease-in-out infinite;
+}
+
+.stack-group:nth-child(2) h4 {
+    animation-delay: 0.4s;
+}
+
+.stack-group:nth-child(3) h4 {
+    animation-delay: 0.8s;
+}
+
+.stack-group:nth-child(4) h4 {
+    animation-delay: 1.2s;
+}
+
+@keyframes stackGroupFloat {
+    0%, 100% {
+        translate: 0 0;
+    }
+    50% {
+        translate: 0 -4px;
+    }
 }
 
 .stack-group:nth-child(1) h4,
