@@ -1216,6 +1216,7 @@ body {
     display: flex;
     gap: 12px;
     margin-top: 16px;
+    justify-content: center;
 }
 
 .figma-live-link {
