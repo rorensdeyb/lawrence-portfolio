@@ -1050,6 +1050,36 @@
             requestAnimationFrame(step);
         }
 
+        // Section subtitle typing, same style as hero typing
+        document.querySelectorAll('.section-subtitle').forEach(sub => {
+            const fullText = sub.textContent;
+            sub.textContent = '';
+            let subStarted = false;
+            const subObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !subStarted) {
+                        subStarted = true;
+                        let i = 0;
+                        let last = 0;
+                        const subSpeed = 60;
+                        function step(now) {
+                            if (i < fullText.length) {
+                                if (now - last >= subSpeed) {
+                                    sub.textContent += fullText.charAt(i);
+                                    i++;
+                                    last = now;
+                                }
+                                requestAnimationFrame(step);
+                            }
+                        }
+                        requestAnimationFrame(step);
+                        subObserver.disconnect();
+                    }
+                });
+            }, { threshold: 0.5 });
+            subObserver.observe(sub);
+        });
+
         // Active nav link on scroll
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-links a');
