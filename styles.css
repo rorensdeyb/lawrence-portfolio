@@ -103,6 +103,10 @@ body {
     display: none;
 }
 
+.burger-arc {
+    display: none;
+}
+
 /* Hero Section */
 .hero {
     display: flex;
@@ -2676,8 +2680,10 @@ body {
     .burger-menu {
         display: block;
         position: fixed;
-        top: 24px;
-        right: 24px;
+        left: 0;
+        top: 0;
+        width: 56px;
+        height: 56px;
         z-index: 1001;
     }
 
@@ -2697,7 +2703,9 @@ body {
         justify-content: center;
         gap: 5px;
         animation: burgerFloat 3s ease-in-out infinite;
-        transition: transform 0.3s;
+        touch-action: none;
+        user-select: none;
+        -webkit-user-select: none;
     }
 
     .burger-btn span {
@@ -2726,50 +2734,44 @@ body {
         50% { transform: translateY(-6px); }
     }
 
-    .burger-dropdown {
+    .burger-arc {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        pointer-events: none;
+    }
+
+    .burger-arc a {
         position: absolute;
-        top: 66px;
-        right: 0;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        border-radius: 16px;
-        padding: 8px;
-        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-10px) scale(0.95);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        min-width: 170px;
-    }
-
-    .burger-dropdown.active {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0) scale(1);
-    }
-
-    .burger-dropdown a {
+        left: 0;
+        top: 0;
         text-decoration: none;
         color: #555;
         font-weight: 600;
         font-size: 14px;
         padding: 10px 16px;
-        border-radius: 10px;
-        transition: all 0.2s;
+        border-radius: 999px;
         white-space: nowrap;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        opacity: 0;
+        pointer-events: none;
+        transform: translate(-50%, -50%) scale(0.5);
+        transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease;
     }
 
-    .burger-dropdown a.active {
+    .burger-menu.open ~ .burger-arc a,
+    .burger-arc.open a {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    .burger-arc a.active {
         background: #1a1a1a;
         color: white;
-    }
-
-    .burger-dropdown a:not(.active):hover {
-        background: rgba(0, 0, 0, 0.05);
-        color: #1a1a1a;
     }
 }
