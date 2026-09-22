@@ -2237,6 +2237,24 @@ body {
     font-weight: 500;
     transition: all 0.3s ease;
     background: #fff;
+    animation: contactsLinkFloat 3s ease-in-out infinite;
+}
+
+.contacts-links .contacts-link:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.contacts-links .contacts-link:nth-child(3) {
+    animation-delay: 0.8s;
+}
+
+@keyframes contactsLinkFloat {
+    0%, 100% {
+        translate: 0 0;
+    }
+    50% {
+        translate: 0 -5px;
+    }
 }
 
 .contacts-link:hover {
