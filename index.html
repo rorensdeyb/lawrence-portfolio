@@ -1226,8 +1226,10 @@
             const arcLinks = Array.from(burgerArc.querySelectorAll('a'));
             const BTN_SIZE = 56;
             const EDGE = 16;
-            const RADIUS = 100;
-            const SPREAD = 150;
+            const BASE = 120;
+            const CURVE = 8;
+            const STEP_MAX = 54;
+            const PAD = 8;
             const pos = { x: window.innerWidth - EDGE - BTN_SIZE, y: 24 };
             let dragging = false;
             let moved = false;
@@ -1246,23 +1248,35 @@
             function layoutArc() {
                 const cx = pos.x + BTN_SIZE / 2;
                 const cy = pos.y + BTN_SIZE / 2;
-                const openLeft = cx > window.innerWidth / 2;
+                const dir = cx > window.innerWidth / 2 ? -1 : 1;
                 const n = arcLinks.length;
-                arcLinks.forEach((link, i) => {
-                    const frac = n === 1 ? 0.5 : i / (n - 1);
-                    const deg = openLeft
-                        ? 180 - SPREAD / 2 + SPREAD * frac
-                        : -SPREAD / 2 + SPREAD * frac;
-                    const rad = deg * Math.PI / 180;
-                    let x = cx + Math.cos(rad) * RADIUS;
-                    let y = cy + Math.sin(rad) * RADIUS;
-                    const hw = link.offsetWidth / 2;
-                    const hh = link.offsetHeight / 2;
-                    const pad = 8;
-                    x = Math.max(hw + pad, Math.min(window.innerWidth - hw - pad, x));
-                    y = Math.max(hh + pad, Math.min(window.innerHeight - hh - pad, y));
-                    link.style.left = x + 'px';
-                    link.style.top = y + 'px';
+                const mid = (n - 1) / 2;
+                const vw = window.innerWidth;
+                const vh = window.innerHeight;
+                const maxH = arcLinks.reduce((m, link) => Math.max(m, link.offsetHeight), 0);
+                let step = Math.min(STEP_MAX, (vh - PAD * 2 - maxH) / Math.max(1, n - 1));
+                step = Math.max(34, step);
+                const pts = arcLinks.map((link, i) => {
+                    const off = i - mid;
+                    return {
+                        link: link,
+                        x: cx + dir * (BASE + CURVE * off * off),
+                        y: cy + off * step,
+                        hw: link.offsetWidth / 2,
+                        hh: link.offsetHeight / 2
+                    };
+                });
+                const minTop = Math.min.apply(null, pts.map(p => p.y - p.hh));
+                const maxBot = Math.max.apply(null, pts.map(p => p.y + p.hh));
+                let shift = 0;
+                if (minTop < PAD) shift = PAD - minTop;
+                else if (maxBot > vh - PAD) shift = (vh - PAD) - maxBot;
+                pts.forEach(p => {
+                    let x = p.x;
+                    if (x - p.hw < PAD) x = PAD + p.hw;
+                    else if (x + p.hw > vw - PAD) x = vw - PAD - p.hw;
+                    p.link.style.left = x + 'px';
+                    p.link.style.top = (p.y + shift) + 'px';
                 });
             }
 
