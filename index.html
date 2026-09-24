@@ -1226,10 +1226,12 @@
             const arcLinks = Array.from(burgerArc.querySelectorAll('a'));
             const BTN_SIZE = 56;
             const EDGE = 16;
-            const BASE = 120;
-            const CURVE = 8;
-            const STEP_MAX = 54;
             const PAD = 8;
+            const ORBIT_R = 120;
+            const ORBIT_SPREAD = 170;
+            const RELAX_PASSES = 25;
+            const RELAX_STEP = 3;
+            const GAP = 6;
             const pos = { x: window.innerWidth - EDGE - BTN_SIZE, y: 24 };
             let dragging = false;
             let moved = false;
@@ -1248,35 +1250,55 @@
             function layoutArc() {
                 const cx = pos.x + BTN_SIZE / 2;
                 const cy = pos.y + BTN_SIZE / 2;
-                const dir = cx > window.innerWidth / 2 ? -1 : 1;
-                const n = arcLinks.length;
-                const mid = (n - 1) / 2;
                 const vw = window.innerWidth;
                 const vh = window.innerHeight;
-                const maxH = arcLinks.reduce((m, link) => Math.max(m, link.offsetHeight), 0);
-                let step = Math.min(STEP_MAX, (vh - PAD * 2 - maxH) / Math.max(1, n - 1));
-                step = Math.max(34, step);
-                const pts = arcLinks.map((link, i) => {
-                    const off = i - mid;
-                    return {
-                        link: link,
-                        x: cx + dir * (BASE + CURVE * off * off),
-                        y: cy + off * step,
-                        hw: link.offsetWidth / 2,
-                        hh: link.offsetHeight / 2
-                    };
-                });
-                const minTop = Math.min.apply(null, pts.map(p => p.y - p.hh));
-                const maxBot = Math.max.apply(null, pts.map(p => p.y + p.hh));
-                let shift = 0;
-                if (minTop < PAD) shift = PAD - minTop;
-                else if (maxBot > vh - PAD) shift = (vh - PAD) - maxBot;
+                const n = arcLinks.length;
+                const sizes = arcLinks.map(link => ({ link: link, w: link.offsetWidth, h: link.offsetHeight }));
+                const phi = Math.atan2(vh / 2 - cy, vw / 2 - cx) * 180 / Math.PI;
+                const step = ORBIT_SPREAD / Math.max(1, n - 1);
+                const angles = sizes.map((s, i) => phi - ORBIT_SPREAD / 2 + step * i);
+                const posOf = (ang, i) => {
+                    const rad = ang * Math.PI / 180;
+                    return { x: cx + Math.cos(rad) * ORBIT_R, y: cy + Math.sin(rad) * ORBIT_R, s: sizes[i] };
+                };
+                const overlaps = (a, b) => {
+                    return Math.abs(a.x - b.x) < (a.s.w + b.s.w) / 2 + GAP &&
+                           Math.abs(a.y - b.y) < (a.s.h + b.s.h) / 2 + GAP;
+                };
+                const norm = d => {
+                    while (d > 180) d -= 360;
+                    while (d < -180) d += 360;
+                    return d;
+                };
+                for (let pass = 0; pass < RELAX_PASSES; pass++) {
+                    let moved = false;
+                    const pts = angles.map((ang, i) => posOf(ang, i));
+                    for (let i = 0; i < n; i++) {
+                        for (let j = i + 1; j < n; j++) {
+                            if (overlaps(pts[i], pts[j])) {
+                                const d = norm(angles[j] - angles[i]) || 0.01;
+                                const push = RELAX_STEP * (d > 0 ? 1 : -1);
+                                angles[i] -= push;
+                                angles[j] += push;
+                                moved = true;
+                            }
+                        }
+                    }
+                    if (!moved) break;
+                }
+                const pts = angles.map((ang, i) => posOf(ang, i));
+                const minX = Math.min.apply(null, pts.map(p => p.x - p.s.w / 2));
+                const maxX = Math.max.apply(null, pts.map(p => p.x + p.s.w / 2));
+                const minY = Math.min.apply(null, pts.map(p => p.y - p.s.h / 2));
+                const maxY = Math.max.apply(null, pts.map(p => p.y + p.s.h / 2));
+                let dx = 0, dy = 0;
+                if (minX < PAD) dx = PAD - minX;
+                else if (maxX > vw - PAD) dx = (vw - PAD) - maxX;
+                if (minY < PAD) dy = PAD - minY;
+                else if (maxY > vh - PAD) dy = (vh - PAD) - maxY;
                 pts.forEach(p => {
-                    let x = p.x;
-                    if (x - p.hw < PAD) x = PAD + p.hw;
-                    else if (x + p.hw > vw - PAD) x = vw - PAD - p.hw;
-                    p.link.style.left = x + 'px';
-                    p.link.style.top = (p.y + shift) + 'px';
+                    p.s.link.style.left = (p.x + dx) + 'px';
+                    p.s.link.style.top = (p.y + dy) + 'px';
                 });
             }
 
