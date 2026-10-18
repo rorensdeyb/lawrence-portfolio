@@ -1850,6 +1850,13 @@ body {
     margin-bottom: 24px;
 }
 
+/* Certiport Cards Grid */
+.certiport-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
 /* Certiport Image Card */
 .certiport-image-card {
     display: block;
@@ -2140,6 +2147,10 @@ body {
 @media (max-width: 768px) {
     .certiport-view {
         display: none;
+    }
+
+    .certiport-cards {
+        grid-template-columns: 1fr;
     }
 
     .badges-grid {
